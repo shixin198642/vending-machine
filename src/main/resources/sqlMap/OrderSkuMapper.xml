@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.OrderSkuDao">
+	<resultMap id="OrderSku" type="com.mjitech.model.OrderSku">
+		<id column="id" property="id"/>
+		<result column="skuid" property="skuid"/>
+		<result column="skunumber" property="skunumber"/>
+		<result column="skuname" property="skuname"/>
+		<result column="skuspecid" property="skuspecid"/>
+		<result column="specname" property="specname"/>
+		<result column="unit" property="unit"/>
+		<result column="orderamt" property="orderamt"/>
+		<result column="specprice" property="specprice"/>
+		<result column="amount" property="amount"/>
+		<result column="remarks" property="remarks"/>
+		<result column="orderid" property="orderid"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		 id,skuid,skunumber,skuname,skuspecid,specname,
+		 unit,orderamt,specprice,amount,remarks,orderid,
+		 creator,updator,create_datetime,update_datetime
+	</sql>
+
+
+    <select id="getById" resultMap="OrderSku" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_order_sku
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getBySname" resultMap="OrderSku" parameterType="java.lang.String">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_order_sku
+        <where>
+        	skuname=#{skuname} 
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.OrderSku" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_order_sku(<include refid="Base_Column_List" />)
+        VALUES ( #{id}, #{skuid},#{skunumber},#{skuname}, #{skuspecid},#{specname},
+        	#{unit}, #{orderamt}, #{specprice},#{amount},#{remarks}, #{orderid}, 
+        	#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.OrderSku">
+    	update mt_order_sku set 
+    		update_datetime=#{updateDatetime},
+    		
+    		<if test="skuid != null and skuid != 0">
+                skuid = #{skuid},
+            </if>
+    		<if test="skunumber != null">
+                skunumber = #{skunumber},
+            </if>
+    		<if test="skuname != null">
+                skuname = #{skuname},
+            </if>
+    		<if test="skuspecid != null and skuspecid != 0">
+                skuspecid = #{skuspecid},
+            </if>
+    		<if test="specname != null">
+                specname = #{specname},
+            </if>
+    		<if test="unit != null">
+                unit = #{unit},
+            </if>
+            <if test="orderamt != null and orderamt != 0">
+                orderamt = #{orderamt},
+            </if>
+            <if test="specprice != null and specprice != 0">
+                specprice = #{specprice},
+            </if>
+            <if test="amount != null and amount != 0">
+                amount = #{amount},
+            </if>
+    		<if test="remarks != null">
+                remarks = #{remarks},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_order_sku where id=#{id}	
+    </delete>
+     
+    <select id="getByCondition" resultMap="OrderSku" parameterType="com.mjitech.model.OrderSku">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_order_sku
+        <where>
+        	1=1
+        	<if test="orderid != 0">
+                and orderid = #{orderid}
+            </if>
+        </where>
+    </select>
+    
+    
+</mapper>

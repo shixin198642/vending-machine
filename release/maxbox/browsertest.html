@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+      <title>显示浏览器名称与版本</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+
+<body>
+
+      <h1>显示浏览器名称与版本</h1><hr>
+
+      <script type="text/javascript">
+
+      <!--
+
+            var browserName = navigator.appName;  //获取浏览器官方名称
+
+            var codeName=navigator.appCodeName;   //获取浏览器用户名称
+
+            var browserVersion = parseFloat(navigator.appVersion); //获取浏览器版本
+
+            var minorVersion=navigator.appMinorVersion; //获取浏览器子版本号
+
+            var userAgent = navigator.userAgent; //获取浏览器商家信息
+
+            //分别显示输出
+
+            document.write("自定义信息 ： "+userAgent + "<br>");
+
+            document.write("浏览器官方名称： "+ browserName+"<br>");
+
+            document.write("用户浏览器名称 ： "+ codeName+"<br>");
+
+            document.write("浏览器版本 ： "+browserVersion+"<br>");
+
+            document.write("浏览器子版本 ： "+minorVersion+"<br>");
+
+            for(var s in navigator) {
+            	document.write(s + "： " + navigator[s] + "<br/>");
+               }
+
+            	
+
+      // -->
+
+      </script>
+
+     
+
+      <!--对不支持JavaScript的浏览器，显示无法检测-->
+
+      <noscript>
+
+          浏览器不支持JavaScript，无法检测。
+
+      </noscript>
+
+</body>
+
+</html>

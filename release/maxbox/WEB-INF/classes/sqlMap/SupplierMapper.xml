@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SupplierDao">
+	<resultMap id="Supplier" type="com.mjitech.model.Supplier">
+		<id column="id" property="id"/>
+		<result column="sname" property="sname"/>
+		<result column="address" property="address"/>
+		<result column="remarks" property="remarks"/>
+		<result column="account" property="account"/>
+		<result column="bank" property="bank"/>
+		<result column="shipaddress" property="shipaddress"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+	
+	<resultMap id="SupplierMainSc" type="com.mjitech.model.Supplier">
+		<id column="id" property="id"/>
+		<result column="sname" property="sname"/>
+		<result column="address" property="address"/>
+		<result column="remarks" property="remarks"/>
+		<result column="account" property="account"/>
+		<result column="bank" property="bank"/>
+		<result column="shipaddress" property="shipaddress"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+		
+		<result column="mcname" property="mcname"/>
+		<result column="mtel" property="mtel"/>
+		<result column="mfax" property="mfax"/>
+		<result column="memail" property="memail"/>
+		
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		 id,sname,address,remarks,account,bank,shipaddress,
+		 creator,updator,create_datetime,update_datetime
+	</sql>
+
+	<sql id="Extend_Column_List">
+		 id,sname,address,remarks,account,bank,shipaddress,
+		 creator,updator,create_datetime,update_datetime,mcname,mtel,mfax,memail
+	</sql>
+
+    <select id="getById" resultMap="Supplier" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getBySname" resultMap="Supplier" parameterType="java.lang.String">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier
+        <where>
+        	sname=#{sname} 
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Supplier" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_supplier(<include refid="Base_Column_List" />)
+        VALUES ( #{id}, #{sname}, #{address}, #{remarks}, #{account}, #{bank},#{shipaddress}, 
+ 				#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.Supplier">
+    	update mt_supplier set 
+    		update_datetime=#{updateDatetime},
+    		
+    		<if test="sname != null">
+                sname = #{sname},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks},
+            </if>
+            <if test="account != null">
+                account = #{account},
+            </if>
+            <if test="bank != null">
+                bank = #{bank},
+            </if>
+            <if test="shipaddress != null">
+                shipaddress = #{shipaddress},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_supplier where id=#{id}	
+    </delete>
+ 
+    <select id="getByCondition" resultMap="Supplier" parameterType="com.mjitech.model.Supplier">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier
+        <where>
+        	1=1
+        	<if test="id != 0 ">
+                and id = #{id}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname = #{sname}
+            </if>
+            <if test="creator != null and creator != ''">
+                and creator = #{creator}
+            </if>
+        </where>
+    </select>
+
+
+	<select id="getWithMinScByCondition" resultMap="SupplierMainSc" parameterType="com.mjitech.model.Supplier">
+        SELECT s.id AS id,sname,address,s.remarks AS remarks,account,bank,shipaddress,
+		 s.creator AS creator,s.updator AS updator,s.create_datetime AS create_datetime,s.update_datetime AS update_datetime,
+		 c.cname AS mcname,c.tel AS mtel,c.fax AS mfax,c.email AS memail
+        FROM mt_supplier_contact AS c RIGHT JOIN mt_supplier AS s ON s.id = c.supplierid
+        <where>
+        	1=1
+        	<if test="id != 0 ">
+                and s.id = #{id}
+            </if>
+            <if test="sname != null and sname != ''">
+                and s.sname = #{sname}
+            </if>
+            <if test="creator != null and creator != ''">
+                and s.creator = #{creator}
+            </if>
+            and c.type = 1
+        </where>
+    </select>
+    
+</mapper>

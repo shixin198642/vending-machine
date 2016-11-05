@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.ReceiptDao">
+	<resultMap id="Receipt" type="com.mjitech.model.Receipt">
+		<id column="id" property="id"/>
+		<result column="warehouse_id" property="warehouse_id"/>
+        <result column="employee_id" property="employee_id"/>
+        <result column="order_id" property="order_id" />
+        <result column="supplier_name" property="supplier_name" />
+        <result column="tracking_id" property="tracking_id" />
+        <result column="remark" property="remark" />
+        <result column="status" property="status" />
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+
+	    <collection property="receiptItems" ofType="com.mjitech.model.ReceiptItem" autoMapping="true">
+	        <id property="id" column="itemId" javaType="integer"/>
+	        <id property="quantity" column="quantity" javaType="integer"/>
+			<association property="sku" javaType="com.mjitech.model.Sku">
+			   <id property="id" column="sku_id"/>
+			   <result property="name" column="name"/>
+			   <result property="barcode" column="barcode"/>
+			   <result property="brand" column="brand"/>
+			   <result property="country" column="country"/>
+			   <result property="msrp" column="msrp"/>
+			   <result property="category" column="category"/>
+			   <result property="imagePath" column="image_path"/>
+			</association>	        
+	    </collection>		
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+        id, warehouse_id,employee_id, order_id, supplier_name, tracking_id, remark, creator, updator, create_datetime, update_datetime 
+	</sql>
+	
+    <select id="listReceiptByWarehouse" resultMap="Receipt">
+        SELECT r.id, r.warehouse_id, r.order_id, r.tracking_id, r.remark, r.status, r.update_datetime, s.sname AS supplier_name
+        FROM mt_receipt AS r, mt_order AS o, mt_supplier AS s
+        WHERE r.order_id = o.id AND o.supplierid=s.id 
+        <if test="warehouse_id != null"> AND warehouse_id=#{warehouse_id} </if>
+        <if test="status == 'complete' "> AND r.status="complete" </if>
+        <if test="status != 'complete' "> AND r.status!="complete" </if>
+    </select>	
+
+    <select id="listReceiptItemByWarehouse" resultMap="Receipt">
+        SELECT r.id, r.warehouse_id, r.create_datetime, ri.quantity, s.id AS sku_id, s.name,  s.barcode, s.brand, s.country, s.msrp, s.category, s.image_path
+        FROM mt_receipt AS r, mt_receipt_item AS ri, mt_sku AS s
+        WHERE r.id = ri.receipt_id AND ri.sku_id = s.id
+        <if test="warehouse_id != null"> AND warehouse_id=#{warehouse_id} </if>
+        <if test="status == 'complete' "> AND r.status="complete" </if>
+        <if test="status == 'submitted' "> AND r.status="submitted" </if>
+        <if test="status != 'complete' "> AND r.status!="complete" </if>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Receipt" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_receipt(<include refid="Base_Column_List" />)
+        VALUES (#{id},#{warehouse_id},#{employee_id}, #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <select id="getById" resultMap="Receipt" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_receipt
+        <where>
+        	id=#{id}
+        </where>
+    </select>    
+
+        
+</mapper>

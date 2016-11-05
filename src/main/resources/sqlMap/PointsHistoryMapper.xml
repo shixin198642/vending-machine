@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.PointsHistoryDao">
+	<resultMap id="PointsHistory" type="com.mjitech.model.PointsHistory">
+		<id column="id" property="id"/>
+		<result column="type" property="type"/>
+		<result column="userid" property="userid"/>
+		<result column="count" property="count"/>
+		<result column="points_datetime" property="pointsDatetime"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, userid, type, count, points_datetime, 
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="PointsHistory" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_points_history
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByUserid" resultMap="PointsHistory" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_points_history
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.PointsHistory" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_points_history(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{userid},#{type}, #{count}, #{pointsDatetime}, 
+        #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_points_history where id=#{id}
+    </delete>
+    
+    <update id="update" parameterType="com.mjitech.model.PointsHistory">
+    	update mt_points_history set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="type != 0">
+                type = #{type},
+            </if>
+            <if test="count != 0">
+                count = #{count},
+            </if>
+            <if test="pointsDatetime != null">
+                points_datetime = #{pointsDatetime},
+            </if>        
+        	updator=#{updator} where id=#{id}
+    </update>
+</mapper>

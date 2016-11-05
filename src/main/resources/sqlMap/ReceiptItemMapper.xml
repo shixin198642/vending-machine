@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.ReceiptItemDao">
+	<resultMap id="Receipt" type="com.mjitech.model.Receipt">
+		<id column="id" property="id"/>
+		<result column="receipt_id" property="receipt_id"/>
+        <result column="sku_id" property="sku_id"/>
+        <result column="sku_spec_id" property="sku_spec_id"/>
+        <result column="quantity" property="quantity"/>
+        
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+        id, receipt_id,sku_id, sku_spec_id, quantity, creator, updator, create_datetime, update_datetime 
+	</sql>	
+
+    <insert id="add" parameterType="com.mjitech.model.ReceiptItem" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_receipt_item(<include refid="Base_Column_List" />)
+        VALUES (#{id},#{receipt_id},#{sku_id},#{sku_spec_id},#{quantity}, #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>    
+    
+    <select id="getByReceiptId" resultMap="Receipt" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_rectipt_item
+        <where>
+        	receipt_id=#{receipt_id}
+        </where>
+    </select>    
+
+        
+</mapper>

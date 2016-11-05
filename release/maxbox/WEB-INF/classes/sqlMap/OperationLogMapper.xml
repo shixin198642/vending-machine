@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.OperationLogDao">
+	<resultMap id="OperationLog" type="com.mjitech.model.OperationLog">
+		<id column="id" property="id"/>
+		<result column="type" property="type"/>
+		<result column="action" property="action"/>
+		<result column="userid" property="userid"/>
+		<result column="target_id" property="targetId"/>
+		<result column="ip" property="ip"/>
+		<result column="description" property="description"/>
+		<result column="old_value" property="oldValue"/>
+		<result column="new_value" property="newValue"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, type, action, userid, target_id, ip, description, old_value, new_value,
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="OperationLog" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_operation_log
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.OperationLog" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_operation_log(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{type},#{action}, #{userid}, #{targetId}, #{ip}, #{description},
+        #{oldValue}, #{newValue}, 
+        #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_operation_log where id=#{id}
+    </delete>
+</mapper>

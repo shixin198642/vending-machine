@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SkuBrandDao">
+	<resultMap id="SkuBrand" type="com.mjitech.model.SkuBrand">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="story" property="story"/>
+		<result column="description" property="description"/>
+		<result column="url" property="url"/>
+		<result column="sort_number" property="sortNumber"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, url, name, story, description, sort_number, 
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="SkuBrand" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_brand
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getAll" resultMap="SkuBrand">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_brand
+        order by sort_number
+    </select>
+    
+    <select id="getByCondition" resultMap="SkuBrand" parameterType="com.mjitech.model.SkuBrand">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_brand
+         <where>
+         1=1
+         <if test="name != null and name != ''">
+             and name = #{name}
+         </if>
+         </where>
+        order by sort_number
+    </select>
+     
+    <insert id="add" parameterType="com.mjitech.model.SkuBrand" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sku_Brand(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{url}, #{name}, #{story}, #{description}, #{sortNumber},
+                #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SkuBrand">
+    	update mt_sku_brand set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="story != null and story != ''">
+                story = #{story},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="sortNumber != 0">
+                sort_number = #{sortNumber},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sku_brand where id=#{id}
+    </delete>
+    
+</mapper>

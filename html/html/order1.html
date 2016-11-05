@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>订单管理</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<!-- 点击添加class now -->
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<!-- 点击添加class now -->
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="采购订单">采购订单</a></span><i class="arrow arrow-gray-r"></i><span class="end">订单管理</span>
+						</div>
+						<div class="fr btn-mod-panel"><a class="btn-mod btn-skin-blue" href="newproduct.html" title="创建新产品">+ 创建新订单</a></div>
+					</div>
+					<div class="content">
+						<div class="table table-a">
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th>订单编号</th>
+										<th>供应商名称</th>
+										<th>供应商编号</th>
+										<th>总金额</th>
+										<th>订单状态</th>
+										<th>收货单</th>
+										<th>收货单期限</th>
+										<th>最后更新时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a class="colgreen" href="">869999</a></td>
+										<td><a class="colgreen" href="">可口可乐樱桃味汽水300ml</a></td>
+										<td>9998887776665</td>
+										<td>120.00</td>
+										<td>可口可乐</td>
+										<td>
+											<!-- disabled状态添加link-disabled -->
+											<span class="alink">
+												<a class="colgreen link-disabled" href="javascript:void(0);" title="查看">查看</a>
+												<a class="colgreen" href="" title="新建">新建</a>
+											</span>
+										</td>
+										<td>日本</td>
+										<td>06-01 18:00</td>
+										<td class="select-action">
+											<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+											<div class="select-opts">
+												<a class="colgreen" href="" title="编辑订单">编辑订单</a>
+												<a class="colgreen" href="" title="打印合同">打印合同</a>
+												<a class="colgreen" href="" title="导出为PDF">导出为PDF</a>
+												<a class="colgreen" href="" title="关闭合同">关闭合同</a>
+												<a class="colgreen" href="" title="补充信息">补充信息</a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><a class="colgreen" href="">869999</a></td>
+										<td><a class="colgreen" href="">可口可乐樱桃味汽水300ml</a></td>
+										<td>9998887776665</td>
+										<td>120.00</td>
+										<td>可口可乐</td>
+										<td>
+											<span class="alink">
+												<a class="colgreen" href="javascript:void(0);" title="查看">查看</a>
+												<a class="colgreen" href="" title="新建">新建</a>
+											</span>
+										</td>
+										<td>日本</td>
+										<td>06-01 18:00</td>
+										<td class="select-action">
+											<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="9">
+											<table class="table-order" width="100%" cellspacing="0" cellpadding="0">
+												<thead>
+													<tr>
+														<th>
+															<div>
+																<span class="col666">收货单</span><span class="col999">(2)</span>
+															</div>
+															<div><a class="colgreen" href="" title="新建收货单">＋ 新建收货单</a></div>
+														</th>
+														<td>收货单编号</td>
+														<td>备注名</td>
+														<td>包裹追踪号码</td>
+														<td>状态</td>
+														<td>最后更新时间</td>
+														<td>操作</td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th></th>
+														<td><a class="colgreen" href="">869999</a></td>
+														<td>收货单1</td>
+														<td>34341344</td>
+														<td>等待审核</td>
+														<td>06-01 18:00</td>
+														<td>
+															<span class="alink">
+																<a class="colgreen" href="" title="打印">打印</a>
+																<a class="colgreen" href="" title="关闭">关闭</a>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<th></th>
+														<td><a class="colgreen" href="">869999</a></td>
+														<td>收货单1</td>
+														<td>34341344</td>
+														<td>等待审核</td>
+														<td>06-01 18:00</td>
+														<td>
+															<span class="alink">
+																<a class="colgreen" href="" title="打印">打印</a>
+																<a class="colgreen" href="" title="关闭">关闭</a>
+															</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td><a class="colgreen" href="">869999</a></td>
+										<td><a class="colgreen" href="">可口可乐樱桃味汽水300ml</a></td>
+										<td>9998887776665</td>
+										<td>120.00</td>
+										<td>可口可乐</td>
+										<td>
+											<span class="alink">
+												<a class="colgreen" href="javascript:void(0);" title="查看">查看</a>
+												<a class="colgreen" href="" title="新建">新建</a>
+											</span>
+										</td>
+										<td>日本</td>
+										<td>06-01 18:00</td>
+										<td class="select-action">
+											<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+											<div class="select-opts">
+												<a class="colgreen" href="" title="编辑订单">编辑订单</a>
+												<a class="colgreen" href="" title="打印合同">打印合同</a>
+												<a class="colgreen" href="" title="导出为PDF">导出为PDF</a>
+												<a class="colgreen" href="" title="关闭合同">关闭合同</a>
+												<a class="colgreen" href="" title="补充信息">补充信息</a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 关闭收货单 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认关闭此收货单吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 关闭收货单 e -->
+<!-- 收货单成功关闭 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>此收货单已关闭。
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 收货单成功关闭 e -->
+<!-- 关闭订单合同 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认关闭此订单合同吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 关闭订单合同 e -->
+<!-- 订单合同成功关闭 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>此订单合同已关闭。
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 订单合同成功关闭 e -->
+<!-- 补充订单信息 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">补充订单信息</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="infobox">
+				<dl class="clearfix info-panel">
+					<dt>物流总费用</dt>
+					<dd>
+						<label class="labelbox" for="">
+							<input type="text" placeholder="0.0">
+						</label><span class="ml20">元</span>
+						
+					</dd>
+					<dt>发票类型</dt>
+					<dd>
+						<label class="labelbox" for="">
+							<input type="text" placeholder="0.0">
+						</label>
+					</dd>
+				</dl>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 补充订单信息 e -->
+<!-- 补充订单更新成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>更新成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 补充订单更新成功 e -->
+</body>
+</html>

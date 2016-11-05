@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.DictAreaDao">
+	<resultMap id="DictArea" type="com.mjitech.model.DictArea">
+		<id column="id" property="id"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="type" property="type"/>
+		<result column="name" property="name"/>
+		<result column="postcode" property="postcode"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, parent_id, type, name, postcode, creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="DictArea" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_dict_area
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByParent" resultMap="DictArea" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_dict_area
+        <where>
+        	parent_id=#{parentId}
+        </where>
+    </select>
+    
+    <select id="getByType" resultMap="DictArea" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_dict_area
+        <where>
+        	type=#{type}
+        </where>
+    </select>
+    
+    <select id="getByCondition" resultMap="DictArea" parameterType="com.mjitech.model.DictArea">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_dict_area  
+        <where>
+       	 	1=1
+        	<if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="type != 0">
+                and type = #{type}
+            </if>
+            <if test="parentId != 0">
+                and parent_id = #{parentId}
+            </if>
+            <if test="postcode != null and postcode != ''">
+                and postcode = #{postcode}
+            </if>
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.DictArea" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_dict_area(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{parentId}, #{type}, #{name},
+                #{postcode}, #{creator},
+                #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.DictArea">
+    	update mt_dict_area set 
+    		update_datetime=#{updateDatetime},
+    		
+    		<if test="name != null">
+                name = #{name},
+            </if>
+            <if test="type != 0">
+                type = #{type},
+            </if>
+            <if test="parentId != 0">
+                parent_id = #{parentId},
+            </if>
+            <if test="postcode != null">
+                postcode = #{postcode},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_dict_area where id=#{id}
+    </delete>
+    
+</mapper>

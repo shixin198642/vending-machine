@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SaleDao">
+	<resultMap id="saleList" type="com.mjitech.model.Sale">
+		<id column="id" property="id"/>
+		<result column="machine_id" property="machine_id"/>
+		<result column="username" property="username"/>
+		<result column="total_amount" property="total_amount"/>
+        <result column="discounted_amount" property="discounted_amount"/>
+        <result column="actual_amount" property="actual_amount" />
+        <result column="quantity" property="quantity" />
+        <result column="status" property="status" />
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+
+	    <collection property="saleItemList" ofType="com.mjitech.model.SaleItem" autoMapping="true">
+	        
+	    </collection>	
+	</resultMap>
+	
+	
+    <select id="listSaleByMachine" resultMap="saleList">
+        SELECT id,machine_id,username, total_amount,discounted_amount,actual_amount,quantity, status, update_datetime
+        FROM mt_sale
+		<where>machine_id = #{machine_id}</where> 		
+    </select>  
+
+        
+</mapper>

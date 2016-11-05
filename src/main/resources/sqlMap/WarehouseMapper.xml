@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.WarehouseDao">
+	<resultMap id="Warehouse" type="com.mjitech.model.Warehouse">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="type" property="type"/>
+		<result column="status" property="status"/>
+		<result column="warehouse_parent" property="warehouse_parent"/>
+		<result column="province" property="province"/>
+		<result column="city" property="city"/>
+		<result column="region" property="region"/>
+		<result column="address" property="address"/>
+		<result column="manager" property="manager"/>
+		<result column="address" property="address"/>
+		<result column="latitude" property="latitude"/>
+		<result column="longitude" property="longitude"/>
+		<result column="remarks" property="remarks"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+        id, name,type, status, warehouse_parent, province, city, region, address, manager,
+        latitude, longitude, remarks, creator, updator, create_datetime, update_datetime 
+	</sql>
+	
+    <select id="listWarehouse" resultMap="Warehouse" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse WHERE type="warehouse"
+    </select>	
+
+    <select id="listMachineStore" resultMap="Warehouse">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse WHERE type="machine" or type="store"
+    </select>
+ 
+    <select id="getWarehouseById" resultMap="Warehouse" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse
+        <where> id=#{id} </where>
+    </select>
+       
+    <select id="getMachineById" resultMap="Warehouse" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse WHERE type="machine"
+        <if test="id != null"> AND id=#{id} </if>
+    </select>    
+    
+    <insert id="add" parameterType="com.mjitech.model.Warehouse" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_warehouse(<include refid="Base_Column_List" />)
+        VALUES (#{id},#{name},#{type},#{status},#{warehouse_parent}, #{province},#{city},#{region},#{address},
+        	#{manager}, #{latitude}, #{longitude}, #{remarks}, 
+        	#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>    
+    
+    <select id="getById" resultMap="Warehouse" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="listChildren" resultMap="Warehouse" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse
+        <where>
+        	warehouse_parent=#{warehouse_parent}
+        </where>
+    </select>
+    
+    <select id="getBycondition" resultMap="Warehouse" parameterType="com.mjitech.model.Warehouse">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse
+        <where>
+            1=1
+            <if test="type!=null and type !=''">
+                and type=#{type}
+            </if>
+            <if test="status!=0">
+                and status=#{status}
+            </if>
+            <if test="warehouse_parent != 0">
+                and warehouse_parent = #{warehouse_parent}
+            </if>
+            <if test="province != 0">
+                and province = #{province}
+            </if>
+            <if test="city != 0">
+                and city = #{city}
+            </if>
+            <if test="region != 0">
+                and region = #{region}
+            </if>
+        </where>
+    </select>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_warehouse where id=#{id}	
+    </delete>    
+    
+    <update id="update" parameterType="com.mjitech.model.Warehouse">
+    	update mt_warehouse set 
+    		update_datetime=#{updateDatetime},   		
+    		<if test="name != null">
+                name = #{name},
+            </if>
+            <if test="status != 0">
+                status = #{status},
+            </if>
+            <if test="type != null and type!=''">
+                type = #{type},
+            </if>
+            <if test="province != 0">
+                province = #{province},
+            </if>
+            <if test="city != 0">
+                city = #{city},
+            </if>
+            <if test="region != 0">
+                region = #{region},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="manager != 0">
+                manager = #{manager},
+            </if>
+            <if test="warehouse_parent != 0">
+                warehouse_parent = #{warehouse_parent},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>    
+        
+</mapper>

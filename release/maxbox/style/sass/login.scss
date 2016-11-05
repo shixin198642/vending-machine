@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import "var";
+@import "utils";
+
+%borderRadius1{ @include border-radius(4px);}
+%inlblk-middle{ display:inline-block; vertical-align:middle;}
+
+html,body{ height:100%;}
+.wrapper{ background:$coltable; height:100%;}
+.wrap{ width:1204px; height:100%; margin:0 auto; position:relative; overflow:hidden;}
+.logo{ background:url(../images/logo.png); width:134px; height:22px; margin-right:5px; @extend %inlblk-middle;}
+.labelbox{ display:inline-block; @include border($col1);
+	input{ height:22px; line-height:22px; padding:6px 10px;}
+}
+/*login*/
+.login-panel{ width:570px; height:318px; position:absolute; left:50%; top:50%; margin-left:-285px; margin-top:-159px;
+	h3{ padding-bottom:12px; font-size:16px; color:$col2;}
+}
+.login-container{ background:#fff; height:284px; color:$col2; @include border(#c8ccd3);}
+.btn-login{ background:#4f93e1; width:140px; height:39px; line-height:39px; text-align:center; font-size:14px; color:#fff; display:inline-block; @extend %borderRadius1;}
+.loginbox{ padding:66px 90px 0;
+	dt,dd{ float:left; margin-bottom:10px;}
+	dt{ width:86px; margin-right:20px; line-height:36px; text-align:right;}
+	dd{ width:280px;}
+	.labelbox{
+		input{ width:176px;}
+	}
+	.checkbox{ margin-right:5px;}
+}
+.tip-btns{ padding-top:30px; text-align:center;}
+.link-style{ color:$colgreen; margin-left:14px;}
+.findpwd-box{ padding:90px 0 15px;}
+.error-tip{ color:$colred;}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.InstoreDao">
+    <resultMap id="Instore" type="com.mjitech.model.Instore">
+	    <id property="id" column="id"/>
+	    <result property="type" column="type"/>
+	    <result property="warehouseId" column="warehouse_id"/>
+	    <result property="userid" column="userid"/>
+	    <result property="skuId" column="sku_id"/>
+	    <result property="quantity" column="quantity"/>	 
+	    <result property="receiptId" column="receipt_id"/>	 
+		<result property="fromWarehouseId" column="from_warehouse_id" />
+		<result property="description" column="description" />
+		<result property="price" column="price"/>
+		<result property="creator" column="creator" />
+		<result property="updator" column="updator" />			 
+		<result property="createDatetime" column="create_datetime" />
+		<result property="updateDatetime" column="update_datetime" />
+    </resultMap>
+   
+	<sql id="Base_Column_List">
+        id, type, warehouse_id, userid, sku_id, quantity, receipt_id, from_warehouse_id, description, 
+        price, creator, updator, create_datetime, update_datetime 
+	</sql>
+	
+	<select id="getById" resultMap="Instore" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_instore
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+	<insert id="add" parameterType="com.mjitech.model.Instore" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_instore(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{type}, #{warehouseId}, #{userid}, #{skuId}, #{quantity}, #{receiptId}, 
+        	#{fromWarehouseId}, #{description}, #{price},
+        	#{creator}, #{updator}, #{createDatetime},  #{updateDatetime})
+    </insert>
+    
+	<update id="update" parameterType="com.mjitech.model.Instore">
+    	update mt_instore set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="type != 0">
+                type = #{type},
+            </if>
+            <if test="skuId != 0">
+                skuId = #{skuId},
+            </if>
+            <if test="quantity != 0">
+                quantity = #{quantity},
+            </if>
+            <if test="fromWarehouseId != 0">
+                from_warehouse_id = #{fromWarehouseId},
+            </if>
+            <if test="receiptId != 0">
+                receipt_id = #{receiptId},
+            </if>
+            <if test="description != null and description !=''">
+                description = #{description},
+            </if>
+            <if test="price &gt; 0">
+                price = #{price},
+            </if>            
+        	updator=#{updator} where id=#{id}
+    </update>
+	
+	<delete id="delete" parameterType="int">
+    	delete from mt_instore where id=#{id}
+    </delete>
+    
+	<select id="getByCondition" resultMap="Instore" parameterType="com.mjitech.model.Instore">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_instore
+        <where>
+        	1=1
+        	<if test="warehouseId != 0">
+                and warehouse_id = #{warehouseId}
+            </if>
+            <if test="userid != 0">
+                and userid = #{userid}
+            </if>
+        	<if test="fromWarehouseId != 0">
+                and from_warehouse_id = #{fromWarehouseId}
+            </if>
+            <if test="type != 0">
+                and type = #{type}
+            </if>
+            <if test="skuId != 0">
+                and sku_id = #{skuId}
+            </if>
+            <if test="receiptId != 0">
+                and receipt_id = #{receiptId}
+            </if>
+        </where>
+        order by id desc
+    </select>	
+	
+    <select id="listInStore" resultMap="Instore" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_instore <where> from_warehouse_id=#{warehouseId} </where>
+    </select>
+    
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.logdbdao.UserlogDao">
+	<resultMap id="Userlog" type="com.mjitech.logdbmodel.Userlog">
+		<id column="id" property="id"/>
+		<result column="log_type" property="type"/>
+		<result column="user_id" property="userId"/>
+		<result column="source_id" property="sourceId"/>
+		<result column="description" property="description"/>
+		<result column="ip" property="ip"/>
+		<result column="log_time" property="logTime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, log_type, user_id, source_id, description, ip, log_time
+	</sql>
+
+
+    <select id="getById" resultMap="Userlog" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mtlog_userlog
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getLatestLog" resultMap="Userlog" >
+    	
+    	SELECT <include refid="Base_Column_List" />
+        FROM mtlog_userlog order by id desc limit 1
+
+    	
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.logdbmodel.Userlog" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mtlog_userlog(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{type}, #{userId}, #{sourceId},
+                #{description}, #{ip}, #{logTime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.logdbmodel.Userlog">
+    	update mtlog_userlog set 
+    		1=1,
+    		
+    		<if test="userId != 0">
+                user_id = #{userId},
+            </if>
+            <if test="type != 0">
+                log_type = #{type},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+  			<if test="logTime != null">
+                log_time = #{logTime},
+            </if>	
+        	2=2 where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mtlog_userlog where id=#{id}
+    </delete>
+
+    
+</mapper>

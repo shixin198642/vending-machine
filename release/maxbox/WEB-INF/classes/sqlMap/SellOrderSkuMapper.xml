@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SellOrderSkuDao">
+	<resultMap id="SellOrderSku" type="com.mjitech.model.SellOrderSku">
+		<id column="id" property="id"/>
+		<result column="sell_order_id" property="sellOrderId"/>
+		<result column="sku_id" property="skuId"/>
+		<result column="count" property="count"/>
+		<result column="sell_price" property="sellPrice"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, sell_order_id, sku_id, count, sell_price,
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="SellOrderSku" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order_sku
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByCondition" resultMap="SellOrderSku" parameterType="com.mjitech.model.SellOrderSku">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order_sku
+        <where>
+        	1=1
+        	<if test="sellOrderId != 0">
+                and sell_order_id = #{sellOrderId}
+            </if>
+            <if test="skuId != 0">
+                and sku_id = #{skuId}
+            </if>
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.SellOrderSku" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sell_order_sku(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{sellOrderId},#{skuId}, #{count}, #{sellPrice},#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SellOrderSku">
+    	update mt_sell_order_sku set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="sellPrice != 0.0">
+                sell_price = #{sellPrice},
+            </if>
+            <if test="count != 0">
+                count = #{count},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sell_order_sku where id=#{id}
+    </delete>
+</mapper>

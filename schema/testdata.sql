@@ -1,0 +1,3 @@
+TRUNCATE TABLE mt_userinfo;
+INSERT INTO `mt_userinfo` (`id`, `username`, `user_type`, `display_name`, `display_name_pinyin`, `gender`, `mobile`, `email`, `password`, `image`, `creator`, `create_datetime`, `updator`, `update_datetime`) VALUES
+(2, 'zhangzhi@mjitech.com', 1, '张智', 'zhang zhi ', 1, '13910311145', 'zhangzhi@mjitech.com', '/*STP*/MTQ2NTY5NzA3OTE0M2UxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNl', '', 0, '2016-06-12 10:04:39', 0, '2016-06-12 10:04:39');

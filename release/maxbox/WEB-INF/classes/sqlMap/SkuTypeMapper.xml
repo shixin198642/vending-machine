@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SkuTypeDao">
+	<resultMap id="SkuType" type="com.mjitech.model.SkuType">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="code" property="code"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, parent_id, name, code, sort_number, 
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="SkuType" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_type
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByParentId" resultMap="SkuType" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_type
+        <where>
+        	parent_id=#{parentId}
+        </where>
+        order by sort_number
+    </select>
+    
+    <select id="getByCondition" resultMap="SkuType" parameterType="com.mjitech.model.SkuType">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku_type
+         <where>
+         1=1
+         <if test="name != null and name != ''">
+             and name = #{name}
+         </if>
+         <if test="code != null and code != ''">
+             and code = #{code}
+         </if>
+         </where>
+        order by sort_number
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.SkuType" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sku_type(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{parentId}, #{name}, #{code}, #{sortNumber}, 
+                #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SkuType">
+    	update mt_sku_type set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="code != null and code != ''">
+                code = #{code},
+            </if>
+            <if test="parentId != 0">
+                parent_id = #{parentId},
+            </if>
+            <if test="sortNumber != 0">
+                sort_number = #{sortNumber},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sku_type where id=#{id}
+    </delete>
+    
+</mapper>

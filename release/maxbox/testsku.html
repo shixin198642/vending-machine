@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ testme
+  <script>
+  fetch("http://localhost:9090/maxbox/web/seller_api/wx_get_sku_detail.action", {
+        method: "POST",
+		mode: "no-cors",
+		body: JSON.stringify({
+                    sku_number: "UH00001",
+                    // wexinCode: WeChatUtil.getWeXinCode()
+                })
+        }).then(function(res) {
+        	 console.log(res.ok);
+		 res.json().then(
+			function(data){
+				console.log(data);
+			}
+		 ).catch(function(e){console.log(e);});
+		}).catch(function(e) {
+		 console.log("fetch fail", e);
+		});
+
+
+  </script>
+ </body>
+</html>

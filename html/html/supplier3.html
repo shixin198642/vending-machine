@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>供应商--供应商详情和相关商品</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="供应商">供应商</a></span><i class="arrow arrow-gray-r"></i><span class="end">北京元和恒泰贸易有限公司</span>
+						</div>
+						<div class="fr btn-mod-panel">
+							<a class="btn-mod btn-skin-green" href="" title="编辑供应商信息">编辑供应商信息</a>
+							<a class="btn-mod btn-skin-green" href="" title="关联商品">关联商品</a>
+						</div>
+					</div>
+					<div class="content">
+						<div class="tab">
+							<!-- 选中状态添加now -->
+							<a class="now" href="" title="供应商详情">供应商详情</a>
+							<a href="" title="相关商品">相关商品(<i class="colgreen">12</i>)</a>
+						</div>
+						<!-- 切换tab显示对应tabinfo-panel -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="clearfix">
+								<div class="info-l fl">
+									<div class="info-panel">
+										<div class="hd">基本信息</div>
+										<div class="bd">
+											<div class="plr20">
+												<div class="clump-pro-info-panel">
+													<div class="pro-info-panel">
+														<dl class="pro-info-pre">
+															<dt>供应商编号</dt>
+															<dd>00123</dd>
+															<dt>公司名称</dt>
+															<dd>北京元和恒泰贸易有限公司</dd>
+															<dt>通讯地址</dt>
+															<dd>北京市 北京市 朝阳区 惠新东街100号凤凰大厦底商109-C</dd>
+														</dl>
+														<dl class="pro-info-pre">
+															<dt>主要联系人</dt>
+															<dd>王某某</dd>
+															<dt>电话号码</dt>
+															<dd>010-56656555</dd>
+															<dt>传真</dt>
+															<dd>010-56656555</dd>
+															<dt>Email</dt>
+															<dd><a class="colgreen" href="" title="dkdk@163.com">dkdk@163.com</a></dd>
+															<dt>备注</dt>
+															<dd>运输时间较长，不推荐联系</dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="info-r fl">
+									<div class="info-panel">
+										<div class="hd">交易信息</div>
+										<div class="bd">
+											<div>
+												<dl class="order-manage">
+													<dt>银行账号</dt>
+													<dd>6222 2222 6666 2222</dd>
+													<dt>开户行</dt>
+													<dd>招商银行</dd>
+													<dt>发货地址</dt>
+													<dd>北京市 北京市 朝阳区 惠新东街100号凤凰大厦底商109-C</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">联系人名单</div>
+								<div class="bd">
+									<div class="table table-d">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<td>姓名</td>
+													<td>联系电话</td>
+													<td>传真</td>
+													<td>Email</td>
+													<td>备注</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>王某某</td>
+													<td>010-22336663</td>
+													<td>010-22336663</td>
+													<td>dkdk@163.com</td>
+													<td>副经理</td>
+												</tr>
+												<tr>
+													<td>王某某</td>
+													<td>010-22336663</td>
+													<td>010-22336663</td>
+													<td>dkdk@163.co</td>
+													<td>副经理</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>SKU#</th>
+											<th>商品名称</th>
+											<th>商品条形码</th>
+											<th>保质期</th>
+											<th>箱规</th>
+											<th>箱规报价</th>
+											<th>单位</th>
+											<td>单件价格</td>
+											<td>单位</td>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<a class="colgreen" href="" title="869999">869999</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>33766778</td>
+											<td>22 天</td>
+											<td>24瓶/箱</td>
+											<td>33.00</td>
+											<td>箱</td>
+											<td>3.00</td>
+											<td>罐</td>
+											<td>
+												<span class="alink">
+													<a class="colgreen" href="" title="编辑">编辑</a>
+													<a class="colgreen" href="" title="删除">删除</a>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 关联商品 s -->
+<div class="modal-container relate-tip">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">关联商品</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<div class="edit-supplier">
+					<dl class="clearfix supplier-box">
+						<dt>商品</dt>
+						<dd>
+							<!-- 禁用态添加input-disabled -->
+							<label class="labelbox input-disabled" for="">
+								<input class="supplier-name" type="text" placeholder="SKU#、条形码或商品名称" disabled="disabled">
+								<!-- 下拉框 -->
+								<div class="supplier-search-con">
+									<a href="">000112 - 三得利沁柠水550ml</a>
+									<a href="">000112 - 三得利沁柠水550ml</a>
+								</div>
+							</label>
+							<!-- <a class="line-style bg-style2" href="" title="确认商品">确认商品</a> -->
+							<!-- 填写完供应商后显示 -->
+							<i class="checked"></i>
+						</dd>
+						<dt></dt>
+						<dd>
+							<div class="normaltips">
+								<p>如需添加新的商品，请在“商品”版块中点击“创建商品”并填写相关信息。</p>
+								<a class="close" href="" title="关闭">✕</a>
+							</div>
+						</dd>
+					</dl>
+					<div style="display:block" class="edit-display">
+						<div class="table table-c">
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th></th>
+										<td>箱规</td>
+										<td>箱规报价</td>
+										<td>单件价格</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th class="tb-chkbox"><input type="checkbox" checked="checked"></th>
+										<td>12罐 / 箱</td>
+										<td><label class="labelbox" for=""><input type="text" placeholder="0.00"></label></td>
+										<td>2.00</td>
+									</tr>
+									<tr>
+										<th class="tb-chkbox"><input type="checkbox"></th>
+										<td>12罐 / 箱</td>
+										<td><label class="labelbox" for=""><input type="text"></label></td>
+										<td>—</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="edit-tip">
+							<dl class="clearfix dl-style8">
+								<dt>到货周期</dt>
+								<dd>
+									<label class="labelbox" for=""><input type="text"></label>天
+								</dd>
+								<dt>批次效期最小值</dt>
+								<dd>
+									<label class="labelbox" for=""><input type="text"></label>
+								</dd>
+							</dl>
+						</div>
+						<div class="tip-btns">
+							<a class="btn-action btn-blue" href="" title="保存">保存</a>
+							<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 关联商品 e -->
+<!-- 保存成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>保存成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 保存成功 e -->
+<!-- 删除关联 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认要删除此关联吗？</p>
+				<p class="col999">（此操作不会影响该供应商的信息。）</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除关联 e -->
+<!-- 删除成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>删除成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除成功 e -->
+</body>
+</html>

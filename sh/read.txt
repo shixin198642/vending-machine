@@ -1,0 +1,16 @@
+1、修改css:
+找到对应的scss文件下对应scss（名字相同layout.css即layout.scss）
+
+
+
+2、修改完成后进行编译：
+有两种方法
+方法一：
+执行sh文件夹下的css.sh打包文件
+备注：
+css.sh文件需要切换到对应的打包目录下进行打包
+每次修改scss后都需要执行
+方法二：
+编译需要安装sass，
+命令行进入编译目录，执行sass --watch sass:css --style compressed 进行编译
+每次修改scss保存后会自动编译

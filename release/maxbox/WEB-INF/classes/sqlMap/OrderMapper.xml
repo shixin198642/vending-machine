@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.OrderDao">
+	<resultMap id="Order" type="com.mjitech.model.Order">
+		<id column="id" property="id"/>
+		<result column="orderdate" property="orderdate"/>
+		<result column="supplierid" property="supplierid"/>
+		<result column="suppliercontactid" property="suppliercontactid"/>
+		<result column="storehouseid" property="storehouseid"/>
+		<result column="storehousemanagerid" property="storehousemanagerid"/>
+		<result column="paydate" property="paydate"/>
+		<result column="payname" property="payname"/>
+		<result column="payaccount" property="payaccount"/>
+		<result column="paybank" property="paybank"/>
+		<result column="paymode" property="paymode"/>
+		<result column="invoicetype" property="invoicetype"/>
+		<result column="receivedate" property="receivedate"/>
+		<result column="contract" property="contract"/>
+		<result column="payamt" property="payamt"/>
+		<result column="distamt" property="distamt"/>
+		<result column="orderstate" property="orderstate"/>	
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		id,orderdate,supplierid,suppliercontactid,storehouseid,
+		storehousemanagerid,paydate,payname,payaccount,paybank,
+		paymode,invoicetype,receivedate,contract,payamt,distamt,orderstate,
+		creator,create_datetime,updator,update_datetime
+	</sql>
+
+
+    <select id="getById" resultMap="Order" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_order
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Order" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_order(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{orderdate}, #{supplierid}, #{suppliercontactid}, #{storehouseid}, 
+        	#{storehousemanagerid}, #{paydate}, #{payname}, #{payaccount}, #{paybank}, 
+        	#{paymode}, #{invoicetype}, #{receivedate}, #{contract}, #{payamt}, 
+        	#{distamt}, #{orderstate}, 
+        	#{creator}, #{createDatetime}, #{updator}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.Order">
+    	update mt_order set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="suppliercontactid != null and suppliercontactid != 0">
+                suppliercontactid = #{suppliercontactid},
+            </if>
+            <if test="storehouseid != null and storehouseid != 0">
+                storehouseid = #{storehouseid},
+            </if>
+            <if test="storehousemanagerid != null and storehousemanagerid != 0">
+                storehousemanagerid = #{storehousemanagerid},
+            </if>
+            <if test="paydate != null">
+                paydate = #{paydate},
+            </if>
+            <if test="payname != null and payname != ''">
+                payname = #{payname},
+            </if>
+            <if test="payaccount != null and payaccount !=''">
+                payaccount = #{payaccount},
+            </if>
+            <if test="paybank != null and paybank != ''">
+                paybank = #{paybank},
+            </if>
+            <if test="paymode != null and paymode != 0">
+                paymode = #{paymode},
+            </if>
+            <if test="invoicetype != null and invoicetype != ''">
+                invoicetype = #{invoicetype},
+            </if>  
+            <if test="receivedate != null">
+                receivedate = #{receivedate},
+            </if>
+            <if test="contract != null and contract != ''">
+                contract = #{contract},
+            </if>  
+            <if test="payamt != null and payamt != 0">
+                payamt = #{payamt},
+            </if>  
+            <if test="distamt != null and distamt != 0">
+                distamt = #{distamt},
+            </if>  
+            <if test="orderstate != null and orderstate != 0">
+                orderstate = #{orderstate},
+            </if>  
+            
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_order where id=#{id}	
+    </delete>
+    
+    <!--  
+    <select id="getByCondition" resultMap="Order" parameterType="com.mjitech.model.Order">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_storage
+        <where>
+        	1=1
+        	<if test="status != 0">
+                and status = #{status}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="barcode != null and barcode != ''">
+                and barcode = #{barcode}
+            </if>
+        </where>
+    </select>
+    
+    -->
+    
+</mapper>

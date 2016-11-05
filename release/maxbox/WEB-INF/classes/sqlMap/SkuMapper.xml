@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SkuDao">
+	<resultMap id="Sku" type="com.mjitech.model.Sku">
+		<id column="id" property="id"/>
+		<result column="sku_number" property="skuNumber"/>
+		<result column="unique_number" property="uniqueNumber"/>
+		<result column="name" property="name"/>
+		<result column="short_name" property="shortName"/>
+		<result column="brand" property="brand"/>
+		<result column="status" property="status"/>
+		<result column="image_id" property="imageId"/>
+		<result column="image_path" property="imagePath"/>
+		<result column="brand" property="brand"/>
+		<result column="country" property="country"/>
+		<result column="category" property="category"/>
+		<result column="msrp" property="msrp"/>
+		<result column="expiration_days" property="expirationDays"/>
+		<result column="length" property="length"/>
+		<result column="width" property="width"/>
+		<result column="height" property="height"/>
+		<result column="min_stock" property="minStock"/>
+		<result column="safe_stock" property="safeStock"/>
+		<result column="max_stock" property="maxStock"/>
+		<result column="tags" property="tags"/>
+		<result column="remarks" property="remarks"/>
+		<result column="publish_time" property="publishTime"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, sku_number, unique_number, barcode, name, short_name, status, image_id, image_path, brand, country, category, unit, 
+        msrp, expiration_days, length, width, height, min_stock, safe_stock, max_stock, tags, remarks, publish_time,
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+	
+	<sql id="Join_Base_Column_List">
+        ms.id, ms.sku_number, ms.unique_number, ms.barcode, ms.name, ms.short_name, ms.status, ms.image_id, ms.image_path, 
+        ms.brand, ms.country, ms.category, ms.unit, 
+        ms.msrp, ms.expiration_days, ms.length, ms.width, ms.height, ms.min_stock, ms.safe_stock, 
+        ms.max_stock, ms.tags, ms.remarks, ms.publish_time,
+        ms.creator, ms.updator, ms.create_datetime, ms.update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="Sku" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByBarcode" resultMap="Sku" parameterType="java.lang.String">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku
+        <where>
+        	barcode=#{barcode}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Sku" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sku(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{skuNumber}, #{uniqueNumber}, #{barcode}, #{name}, #{shortName}, #{status}, #{imageId}, #{imagePath},#{brand}, 
+                   #{country}, #{category}, #{unit}, #{msrp}, #{expirationDays},#{length},#{width},
+                   #{height}, #{minStock}, #{safeStock}, #{maxStock}, #{tags}, #{remarks}, #{publishTime},
+                 
+                #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.Sku">
+    	update mt_sku set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="status != 0">
+                status = #{status},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="shortName != null and shortName != ''">
+                short_name = #{shortName},
+            </if>
+            <if test="skuNumber != null and skuNumber != ''">
+                sku_number = #{skuNumber},
+            </if>
+            <if test="uniqueNumber != null and uniqueNumber != ''">
+                unique_number = #{uniqueNumber},
+            </if>
+            <if test="barcode != null and barcode != ''">
+                barcode = #{barcode},
+            </if>
+            <if test="unit != null and unit != ''">
+                unit = #{unit},
+            </if>
+            <if test="msrp &gt; 0.0 ">
+                msrp = #{msrp},
+            </if>
+            <if test="expirationDays &gt;0 ">
+                expiration_days = #{expirationDays},
+            </if>
+            <if test="length &gt;0 ">
+                length = #{length},
+            </if>
+            <if test="width &gt;0 ">
+                width = #{width},
+            </if>
+            <if test="height &gt;0 ">
+                height = #{height},
+            </if>
+            <if test="minStock &gt; 0 ">
+                min_stock = #{minStock},
+            </if>
+            <if test="safeStock &gt; 0 ">
+                safe_stock = #{safeStock},
+            </if>
+            <if test="maxStock &gt; 0 ">
+                max_stock = #{maxStock},
+            </if>
+            <if test="updator != 0">
+                updator = #{updator}, 
+            </if>
+            <if test="brand != 0">
+                brand = #{brand}, 
+            </if>
+            <if test="country != 0">
+                country = #{country}, 
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime}, 
+            </if>
+            <if test="category != 0">
+                category = #{category}, 
+            </if>
+            <if test="category != 0">
+                category = #{category}, 
+            </if>
+            <if test="imageId != 0">
+                image_id = #{imageId}, 
+            </if>
+            <if test="imagePath != null and imagePath != ''">
+                image_path = #{imagePath}, 
+            </if>
+            <if test="tags != null and tags != ''">
+                tags = #{tags}, 
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks}, 
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sku where id=#{id}
+    </delete>
+    
+    <select id="getByCondition" resultMap="Sku" parameterType="com.mjitech.model.Sku">
+        SELECT <include refid="Join_Base_Column_List" />
+        FROM mt_sku ms, mt_sku_type mst
+        <where>
+        	1=1 and ms.category=mst.id 
+        	<if test="status != 0">
+                and ms.status = #{status}
+            </if>
+            <if test="name != null and name != ''">
+                and ms.name = #{name}
+            </if>
+            <if test="shortName != null and shortName != ''">
+                and ms.short_name = #{shortName}
+            </if>
+            <if test="skuNumber != null and skuNumber != ''">
+                and ms.sku_number = #{skuNumber}
+            </if>
+            <if test="uniqueNumber != 0">
+                and ms.unique_number = #{uniqueNumber}
+            </if>
+            <if test="barcode != null and barcode != ''">
+                and ms.barcode = #{barcode}
+            </if>
+            <if test="creator != 0">
+                and ms.creator = #{creator}
+            </if>
+            <if test="updator != 0">
+                and ms.updator = #{updator}
+            </if>
+            <if test="country != 0">
+                and ms.country = #{country}
+            </if>
+            <if test="publishTime != null">
+                and ms.publish_time = #{publishTime}
+            </if>
+            <if test="category != 0">
+                and ms.category = #{category}
+            </if>
+            <if test="expirationDays != 0">
+                and ms.expiration_days = #{expirationDays}
+            </if>
+            <if test="length != 0">
+                and ms.length = #{length}
+            </if>
+            <if test="width != 0">
+                and ms.width = #{width}
+            </if>
+            <if test="height != 0">
+                and ms.height = #{height}
+            </if>
+            <if test="minStock != 0">
+                and ms.min_stock = #{minStock}
+            </if>
+            <if test="safeStock != 0">
+                and ms.safe_stock = #{safeStock}
+            </if>
+            <if test="maxStock != 0">
+                and ms.max_stock = #{maxStock}
+            </if>
+            <if test="parentCategory != 0">
+                and mst.parent_id = #{parentCategory}
+            </if>
+        </where>
+        order by 
+        <if test="sort!=null and sort!=''">
+        #{sort}
+        </if> 
+        <if test="sort==null or sort==''">
+        ms.sku_number 
+        </if>
+        limit #{begin},
+        <if test="perpage &gt; 0 ">
+        #{perpage}
+        </if>
+        <if test="perpage &lt;= 0 ">
+        99999
+        </if>
+    </select>
+    
+    <select id="getTotalByCondition" resultType="int" parameterType="com.mjitech.model.Sku">
+        SELECT count(ms.id)
+        FROM mt_sku ms, mt_sku_type mst 
+        <where>
+        	1=1 and ms.category=mst.id 
+        	<if test="status != 0">
+                and ms.status = #{status}
+            </if>
+            <if test="name != null and name != ''">
+                and ms.name = #{name}
+            </if>
+            <if test="shortName != null and shortName != ''">
+                and ms.short_name = #{shortName}
+            </if>
+            <if test="skuNumber != null and skuNumber != ''">
+                and ms.sku_number = #{skuNumber}
+            </if>
+            <if test="uniqueNumber != 0">
+                and ms.unique_number = #{uniqueNumber}
+            </if>
+            <if test="barcode != null and barcode != ''">
+                and ms.barcode = #{barcode}
+            </if>
+            <if test="creator != 0">
+                and ms.creator = #{creator}
+            </if>
+            <if test="updator != 0">
+                and ms.updator = #{updator}
+            </if>
+            <if test="country != 0">
+                and ms.country = #{country}
+            </if>
+            <if test="publishTime != null">
+                and ms.publish_time = #{publishTime}
+            </if>
+            <if test="category != 0">
+                and ms.category = #{category}
+            </if>
+            <if test="expirationDays != 0">
+                and ms.expiration_days = #{expirationDays}
+            </if>
+            <if test="length != 0">
+                and ms.length = #{length}
+            </if>
+            <if test="width != 0">
+                and ms.width = #{width}
+            </if>
+            <if test="height != 0">
+                and ms.height = #{height}
+            </if>
+            <if test="minStock != 0">
+                and ms.min_stock = #{minStock}
+            </if>
+            <if test="safeStock != 0">
+                and ms.safe_stock = #{safeStock}
+            </if>
+            <if test="maxStock != 0">
+                and ms.max_stock = #{maxStock}
+            </if>
+            <if test="parentCategory != 0">
+                and mst.parent_id = #{parentCategory}
+            </if>
+        </where>
+        
+    </select>
+    
+    <select id="getTotalByParentType" resultType="int" parameterType="int">
+        SELECT count(id)
+        FROM mt_sku ms, mt_sku_type mst where mst.id=ms.category and mst.parent_id=#{parentType}
+        
+        
+    </select>
+    
+    <select id="getSkus" resultMap="Sku" parameterType="com.mjitech.model.Sku">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sku
+        <where>
+        	1=1 and status != 1
+        </where>
+        order by sku_number
+        
+        limit #{begin}, #{perpage}
+        
+        
+    </select>    
+</mapper>

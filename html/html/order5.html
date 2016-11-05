@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>采购订单--采购请求</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="采购订单">采购订单</a></span><i class="arrow arrow-gray-r"></i><span><a href="" title="采购请求">采购请求</a></span><i class="arrow arrow-gray-r"></i><span class="end">北京第二仓库</span>
+						</div>
+					</div>
+					<div class="content">
+						<div class="tab">
+							<!-- 选中状态添加now -->
+							<a class="now" href="" title="新请求">新请求</a>
+							<a href="" title="历史请求">历史请求</a>
+						</div>
+						<div class="mb20">
+							<div class="btn-mod-panel">
+								<a class="btn-mod btn-skin-blue" href="" title="下单">下单</a>
+								<a class="btn-mod btn-skin-green" href="" title="全部下单">全部下单</a>
+							</div>
+						</div>
+						<!-- 切换tab显示对应tabinfo-panel -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th></th>
+											<th>SKU#</th>
+											<th>商品名称</th>
+											<th>请求数量</th>
+											<th>已选定数量</th>
+											<th>供应商/箱规</th>
+											<th>最晚下单时间</th>
+											<th>最后更新时间</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td></td>
+											<td>
+												<a class="colgreen" href="" title="869999">869999</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>33</td>
+											<td>22</td>
+											<td><a class="bgblue-rds" href="" title="指定供应商/箱规">指定供应商/箱规</a></td>
+											<td>06-01 18:00</td>
+											<td>06-01 18:00</td>
+										</tr>
+										<tr>
+											<td class="tb-chkbox"><input type="checkbox"></td>
+											<td>
+												<a class="colgreen" href="" title="869999">869999</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>33</td>
+											<td>22</td>
+											<td><span>北京乐天食品商贸公司</span><span class="plr10">24瓶/箱</span><a class="colgreen" href="" title="修改">修改</a></td>
+											<td>06-01 18:00</td>
+											<td>06-01 18:00</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>SKU#</th>
+											<th>商品名称</th>
+											<th>请求数量</th>
+											<th>已订货</th>
+											<th>供应商/箱规</th>
+											<th>订单状态</th>
+											<th>最后更新时间</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<a class="colgreen" href="" title="869999">869999</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>33</td>
+											<td>22</td>
+											<td>北京乐天食品商贸公司 24瓶/箱</td>
+											<td>等待供应商确认</td>
+											<td>06-01 18:00</td>
+											<td><a class="colgreen" href="" title="查看订单">查看订单</a></td>
+										</tr>
+										<tr>
+											<td>
+												<a class="colgreen" href="" title="869999">869999</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+												<div class="itemcard">
+													<div class="info-panel">
+														<div class="pic">
+															<img src="../images/sprite.png" alt="">
+														</div>
+														<dl class="dl-style5">
+															<dt>SKU＃</dt>
+															<dd>180天</dd>
+															<dt>商品条形码</dt>
+															<dd>3068320000343</dd>
+															<dt>商品名称</dt>
+															<dd>可口可乐樱桃味汽水300ml</dd>
+														</dl>
+														<dl class="infobox">
+															<dt>保质期</dt>
+															<dd>180天</dd>
+															<dt>建议零售价</dt>
+															<dd>2.50</dd>
+														</dl>
+														<div class="tip-btns">
+															<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>33</td>
+											<td>22</td>
+											<td>北京乐天食品商贸公司 24瓶/箱</td>
+											<td>等待供应商确认</td>
+											<td>06-01 18:00</td>
+											<td><a class="colgreen" href="" title="查看订单">查看订单</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 指定供应商/箱规 s -->
+<div class="modal-container relate-tip">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">指定供应商/箱规</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="edit-supplier">
+				<dl class="clearfix info-panel">
+					<dt>供应商</dt>
+					<dd>
+						<!-- 禁用态添加input-disabled -->
+						<label class="labelbox" for="">
+							<input class="supplier-name" type="text" placeholder="供应商编号或公司名称" disabled="disabled">
+							<!-- 下拉框 -->
+							<div class="supplier-search-con">
+								<a href="">000112 - 三得利沁柠水550ml</a>
+								<a href="">000112 - 三得利沁柠水550ml</a>
+							</div>
+						</label>
+						<!-- <a class="line-style bg-style2" href="" title="确认供应商">确认供应商</a> -->
+						<!-- 填写完供应商后显示 -->
+						<i class="checked"></i>
+					</dd>
+				</dl>
+				<div style="display:block" class="edit-display">
+					<div class="table table-c">
+						<table width="100%" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th></th>
+									<td>箱规</td>
+									<td>箱规报价</td>
+									<td>单件价格</td>
+									<td>采购数量</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th class="tb-radio"><input type="radio" checked="checked"></th>
+									<td>12罐 / 箱</td>
+									<td>48.00</td>
+									<td>2.00</td>
+									<td><label class="labelbox" for=""><input type="text"></label></td>
+								</tr>
+								<tr>
+									<th class="tb-radio"><input type="radio"></th>
+									<td>12罐 / 箱</td>
+									<td>48.00</td>
+									<td>2.00</td>
+									<td></td>
+								</tr>
+								<tr>
+									<th class="tb-radio"><input type="radio"></th>
+									<td>12罐 / 箱</td>
+									<td>48.00</td>
+									<td>2.00</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tip-btns">
+						<a class="btn-action btn-blue" href="" title="保存">保存</a>
+						<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 指定供应商/箱规 e -->
+</body>
+</html>

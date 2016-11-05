@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.PickingDao">
+    <resultMap id="picking" type="com.mjitech.model.Picking">
+	    <id property="id" column="id"/>
+	    <result property="machine_id" column="machine_id"/>
+	    <result property="warehouse_id" column="warehouse_id"/>
+	    <result property="employee_id" column="employee_id"/>
+	    <result property="status" column="status"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, machine_id, warehouse_id, employee_id, status, creator, updator, create_datetime, update_datetime 
+	</sql>
+
+    <insert id="createPicking" parameterType="com.mjitech.model.Picking" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    	INSERT INTO mt_picking(machine_id, warehouse_id, employee_id, status, creator, create_datetime, updator, update_datetime)
+        VALUES ( #{machine_id}, #{warehouse_id}, #{employee_id}, #{status}, #{creator}, #{createDatetime}, #{updator}, #{updateDatetime})
+    </insert> 
+
+    <select id="listPicking" resultMap="picking">
+    	SELECT <include refid="Base_Column_List" />
+    	FROM mt_picking
+    </select>  
+
+    <select id="listPickingByWarehouse" resultMap="picking">
+    	SELECT <include refid="Base_Column_List" />
+    	FROM mt_picking <where> warehouse_id=#{warehouse_id} </where>
+    </select>
+</mapper>

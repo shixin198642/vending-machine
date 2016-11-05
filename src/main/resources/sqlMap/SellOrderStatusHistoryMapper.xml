@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SellOrderStatusHistoryDao">
+	<resultMap id="SellOrderStatusHistory" type="com.mjitech.model.SellOrderStatusHistory">
+		<id column="id" property="id"/>
+		<result column="sell_order_id" property="sellOrderId"/>
+		<result column="userid" property="userid"/>
+		<result column="status" property="status"/>
+		<result column="status_datetime" property="statusDatetime"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, sell_order_id, userid, status, status_datetime, 
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="SellOrderStatusHistory" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order_status_history
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.SellOrderStatusHistory" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sell_order_status_history(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{sellOrderId},#{userid}, #{status}, #{statusDatetime}, 
+        	#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SellOrderStatusHistory">
+    	update mt_sell_order_status_history set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="status != 0">
+                status = #{status},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sell_order_status_history where id=#{id}
+    </delete>
+</mapper>

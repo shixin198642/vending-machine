@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>采购订单--编辑收货单</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="采购订单">采购订单</a></span><i class="arrow arrow-gray-r"></i><span><a href="" title="订单合同 000231">订单合同 000231</a></span><i class="arrow arrow-gray-r"></i><span class="end">编辑收货单</span>
+						</div>
+						<div class="fr btn-mod-panel"><a class="btn-mod btn-skin-green" href="newproduct.html" title="查看订单内容">查看订单内容</a></div>
+					</div>
+					<div class="content">
+						<div class="plr20 pt30">
+							<div class="info-panel">
+								<div class="hd">收货单信息</div>
+								<div class="bd">
+									<div class=clearfix>
+										<dl class="info-style">
+											<dt><span class="star">*</span>发货方式</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text">
+												</label>
+											</dd>
+											<dt><span class="star">*</span>物流公司</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text">
+												</label>
+											</dd>
+											<dt>包裹追踪号码</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text">
+												</label>
+											</dd>
+											<dt>收货单备注名</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text">
+												</label>
+											</dd>
+											<dt>发货日期</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text" placeholder="YYYY-MM-DD">
+												</label>
+											</dd>
+											<dt><span class="star">*</span>预计到货日期</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text" placeholder="YYYY-MM-DD">
+												</label>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">收货清单</div>
+								<div class="bd">
+									<div class="table table-nobord">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<th></th>
+													<td>商品</td>
+													<td>箱规</td>
+													<td>可收货数量</td>
+													<td>本次收货数量</td>
+													<td>单位</td>
+													<td>批次信息</td>
+													<td></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th><span class="bgnum">1</span></th>
+													<td>
+														<label for="" class="labelbox">
+															<select class="drop-select drop-220" name="" id="">
+																<option value="">选择商品</option>
+																<option value="">019238 - 可口可乐樱桃味汽</option>
+																<option value="">019238 - 可口可乐樱桃味汽</option>
+															</select>
+														</label>
+													</td>
+													<td>
+														<label for="" class="labelbox">
+															<select class="drop-select drop-80" name="" id="">
+																<option value="">12罐 / 箱</option>
+																<option value="">12罐 / 箱</option>
+																<option value="">12罐 / 箱</option>
+															</select>
+														</label>
+													</td>
+													<td>20</td>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w30" type="text">
+														</label>
+													</td>
+													<td>箱</td>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w100" type="text" placeholder="YYYY-DD-MM">
+														</label>
+													</td>
+													<td><a class="colgreen" href="" title="删除">删除</a></td>
+												</tr>
+												<tr>
+													<th></th>
+													<td align="left" colspan="7"><a class="colgreen" href="" title="增加商品">+ 增加商品</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="btn-action-panel">
+								<a class="btn-action btn-cancel" href="" title="放弃编辑">放弃编辑</a>
+								<a class="btn-action btn-blue" href="" title="保存并移交至仓库">保存并移交至仓库</a>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

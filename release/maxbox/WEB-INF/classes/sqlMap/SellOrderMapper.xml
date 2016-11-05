@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SellOrderDao">
+	<resultMap id="SellOrder" type="com.mjitech.model.SellOrder">
+		<id column="id" property="id"/>
+		<result column="order_number" property="orderNumber"/>
+		<result column="seller_id" property="sellerId"/>
+		<result column="buyer_id" property="buyerId"/>
+		<result column="cancel_user_id" property="cancelUserId"/>
+		<result column="warehouse_id" property="warehouseId"/>
+		<result column="sell_time" property="sellTime"/>
+		<result column="status" property="status"/>
+		<result column="pay_status" property="payStatus"/>
+		<result column="pay_time" property="payTime"/>
+		<result column="cancel_time" property="cancelTime"/>
+		<result column="total_price" property="totalPrice"/>
+		<result column="wxpay_url" property="wxpayUrl"/>
+		<result column="wxprepay_id" property="wxprepayId"/>
+		<result column="request_wxpay_time" property="requestWxpayTime"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, order_number, seller_id, buyer_id, cancel_user_id, warehouse_id, sell_time, status, pay_status, pay_time, cancel_time,
+        total_price, wxpay_url, wxprepay_id, request_wxpay_time, creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="SellOrder" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    <select id="getAllUnpayOrders" resultMap="SellOrder" parameterType="java.util.Date">
+    	SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order
+        <where>
+        	<![CDATA[(status=1) and update_datetime <= #{cancelDate}]]>
+        </where>
+        order by id desc
+    </select>
+    <select id="getByCondition" resultMap="SellOrder" parameterType="com.mjitech.model.SellOrder">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_sell_order
+        <where>
+        	1=1
+        	<if test="status != 0">
+                and status = #{status}
+            </if>
+            <if test="payStatus != 0">
+                and pay_status = #{payStatus}
+            </if>
+        	<if test="orderNumber != null and orderNumber !=''">
+                and order_number = #{orderNumber}
+            </if>
+            <if test="sellerId != 0">
+                and seller_id = #{sellerId}
+            </if>
+            <if test="buyerId != 0">
+                and buyer_id = #{buyerId}
+            </if>
+            <if test="warehouseId != 0">
+                and warehouse_id = #{warehouseId}
+            </if>
+        </where>
+        order by 
+        <if test="sort!=null and sort!=''">
+        ${sort}
+        </if> 
+        <if test="sort==null or sort==''">
+        id
+        </if>
+        <if test="sortDir!=null and sortDir!='' ">
+        ${sortDir}
+        </if>
+        limit #{begin},
+        <if test="perpage &gt; 0 ">
+        #{perpage}
+        </if>
+        <if test="perpage &lt;= 0 ">
+        99999
+        </if>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.SellOrder" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_sell_order(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{orderNumber},#{sellerId}, #{buyerId}, #{cancelUserId}, #{warehouseId}, #{sellTime}, #{status}, #{payStatus}, #{payTime}, 
+                   #{cancelTime}, #{totalPrice}, #{wxpayUrl}, #{wxprepayId}, #{requestWxpayTime}, #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SellOrder">
+    	update mt_sell_order set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="status != 0">
+                status = #{status},
+            </if>
+            <if test="orderNumber != null and orderNumber != ''">
+                order_number = #{orderNumber},
+            </if>
+            <if test="payStatus != 0">
+                pay_status = #{payStatus},
+            </if>
+            <if test="totalPrice != 0">
+                total_price = #{totalPrice},
+            </if>
+            <if test="payTime != null">
+                pay_time = #{payTime},
+            </if>
+            <if test="cancelTime != null">
+                cancel_time = #{cancelTime},
+            </if>
+            <if test="cancelUserId != 0">
+                cancel_user_id = #{cancelUserId},
+            </if>
+            <if test="wxpayUrl != null and wxpayUrl != ''">
+                wxpay_url = #{wxpayUrl},
+            </if>
+            <if test="wxprepayId != null">
+                wxprepay_id = #{wxprepayId},
+            </if>
+            <if test="requestWxpayTime != null">
+                request_wxpay_time = #{requestWxpayTime},
+            </if>
+            <if test="buyerId != 0">
+                buyer_id = #{buyerId},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_sell_order where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,85 @@
+@function calculateRem($size) {
+	$remSize: $size / 10px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+@mixin opacity($x){
+	opacity: $x / 100;	
+	filter:alpha(opacity=$x);
+}
+
+@mixin box-shadow($x...){
+	-webkit-box-shadow:$x;box-shadow:$x;
+}
+
+@mixin border($x3, $x1:1px, $x2:solid){
+	border:$x1 $x2 $x3;
+}
+
+@mixin border-radius($x...){
+	-webkit-border-radius:$x; border-radius:$x;
+}
+
+@mixin box-sizing($x:border-box){
+	-webkit-box-sizing:$x;-moz-box-sizing:$x;-o-box-sizing:$x;-ms-box-sizing:$x; box-sizing:$x;
+}
+
+@mixin display-box{
+	display:-webkit-box; display:box;
+}
+
+@mixin box-center{
+	-webkit-box-align:center; box-align:center; -webkit-box-pack:center; box-pack:center;
+}
+
+@mixin box-align($x:center){
+	-webkit-box-align:$x; box-align:$x;
+}
+
+@mixin box-pack($x:center){
+	-webkit-box-pack:$x; box-pack:$x;
+}
+
+@mixin box-flex($x1:1){
+	-webkit-box-flex:$x1; box-flex:$x1;
+}
+
+@mixin box-direction($x1:normal){
+	-webkit-box-direction:$x1; box-direction:$x1;
+}
+
+@mixin display-flex{
+	 display:-webkit-flex; display:flex;
+}
+@mixin flex-wrap($x1:wrap){
+	-webkit-flex-wrap:$x1; flex-wrap:$x1;
+}
+
+@mixin background-size($x1){	
+	-webkit-background-size:$x1; -moz-background-size:$x1;-o-background-size:$x1;-ms-background-size:$x1; background-size:$x1;	
+}
+
+@mixin text-shadow($x...){
+  -webkit-text-shadow:$x; text-shadow:$x;
+}
+
+@mixin arrow($x1, $x3, $x2:solid){
+	width:0; height:0; line-height:0; font-size:0; border-width:$x1; border-style:$x2; border-color:$x3;
+}
+
+@mixin text-overflow{
+	overflow:hidden; white-space:nowrap; -webkit-text-overflow:ellipsis;-moz-text-overflow:ellipsis;-o-text-overflow:ellipsis;text-overflow:ellipsis;
+}
+
+@mixin arrow_single($x1, $x2, $x6, $x3:1px, $x4:solid, $x5:transparent transparent rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.3)){
+	 width:$x1; height:$x2; border-width:$x3; border-style:$x4; border-color:$x5; -webkit-transform:$x6;transform:$x6;
+}
+
+@mixin transform($x...){
+	-webkit-transform:$x; -moz-transform:$x;-o-transform:$x;-ms-transform:$x; transform:$x;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>首页</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar">
+			<div class="blank"></div>
+			<div class="sidebar-nav">
+				<ul>
+					<li>
+						<h2><i class="icon-side icon-1"></i>首页</h2>
+					</li>
+					<li class="now">
+						<h2><i class="icon-side icon-2"></i>商品</h2>
+						<ul class="leve1">
+							<li class="now">
+								<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+							</li>
+							<li>
+								<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+						<ul class="leve1">
+							<li>
+								<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+							</li>
+							<li>
+								<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h2><i class="icon-side icon-4"></i>采购订单</h2>
+					</li>
+					<li>
+						<h2><i class="icon-side icon-5"></i>物流配送</h2>
+					</li>
+					<li>
+						<h2><i class="icon-side icon-6"></i>门店机器</h2>
+					</li>
+					<li>
+						<h2><i class="icon-side icon-7"></i>供应商</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="layout">
+		</div>
+	</div>
+</div>
+<div style="display:block" class="modal-msk"></div>
+<!-- 异常提示 s -->
+<div style="display:block" class="modal-container errorinfo-tip">
+	<div class="modal-tip">
+		<!-- 这里header提示信息可以选择去掉或者保留 -->
+		<div style="display:none" class="modal-hd">
+			<h4 class="modal-title">异常信息</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="errinfo-panel">
+				<div class="icon-error-tip"></div>
+			<div class="errinfo-con">
+				这里是异常信息提示这里是异常信息提示这里是异常信息提示这里是异常信息提示
+			</div>
+			</div>
+			<div class="tip-btns">
+				<!-- 这里的两个按钮如果需要一个将另一个删除即可 -->
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+				<a style="display:none;" class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 异常提示 e -->
+<!-- 删除关联 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认要删除此关联吗？</p>
+				<p class="col999">（此操作不会影响该供应商的信息。）</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除关联 e -->
+<!-- 关联成功 s -->
+<div style="display:none;" class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>关联成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 关联成功 e -->
+</body>
+</html>

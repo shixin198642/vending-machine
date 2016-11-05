@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.WarehouseManagerDao">
+	<resultMap id="WarehouseManager" type="com.mjitech.model.WarehouseManager">
+		<id column="id" property="id"/>
+		<result column="warehouse_id" property="warehouseId"/>
+		<result column="manager_id" property="managerId"/>
+		<result column="type" property="type"/>
+		<result column="warehouse_parent" property="warehouse_parent"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+        id, warehouse_id, manager_id, type, creator, updator, create_datetime, update_datetime 
+	</sql>   
+    
+    <insert id="add" parameterType="com.mjitech.model.WarehouseManager" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_warehouse_manager(<include refid="Base_Column_List" />)
+        VALUES (#{id},#{warehouseId},#{managerId},#{type},
+        	#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>    
+    
+    <select id="getById" resultMap="WarehouseManager" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse_manager
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <select id="getByWarehouse" resultMap="WarehouseManager" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse_manager
+        <where>
+        	warehouse_id=#{warehouseId}
+        </where>
+    </select>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_warehouse_manager where id=#{id}	
+    </delete>    
+    
+    <update id="update" parameterType="com.mjitech.model.WarehouseManager">
+    	update mt_warehouse_manager set 
+    		update_datetime=#{updateDatetime},   		
+    		<if test="warehouseId != 0">
+                warehouse_id = #{warehouseId},
+            </if>
+            <if test="managerId != 0">
+                manager_id = #{managerId},
+            </if>
+            <if test="type != 0">
+                type = #{type},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>    
+    
+    <select id="getByCondition" resultMap="WarehouseManager" parameterType="com.mjitech.model.WarehouseManager">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_warehouse_manager
+        <where>
+        	1=1
+        	<if test="warehouseId != 0">
+                and warehouse_id = #{warehouseId}
+            </if>
+            <if test="managerId != 0">
+                and manager_id = #{managerId}
+            </if>
+            <if test="type != 0">
+                and type = #{type}
+            </if>
+        </where>
+    </select>
+    
+    
+</mapper>

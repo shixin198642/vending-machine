@@ -1,0 +1,227 @@
+@import "var";
+@import "utils";
+$iconbarlen:7;
+%borderRadius1{ @include border-radius(4px);}
+html,body{ height:100%;}
+body{ line-height:1.5; color:$col666;}
+input{ color:$col666;}
+input[type="checkbox"]{ vertical-align:text-top;}
+::-webkit-input-placeholder{ color:$col1;}
+input:-ms-input-placeholder{ color:$col1;}
+.wrapper{ height:100%;}
+.wrap{ background:$colbg1; width:1204px; margin:0 auto; position:relative; min-height:100%; overflow:hidden; font-size:0;/* overflow:hidden;*/}
+.sidebar-panel,.layout{ display:inline-block; letter-spacing:normal; word-spacing:normal; vertical-align:top; font-size:12px;}
+.sidebar-panel{ width:200px; height:100%;}
+.layout-panel{ display:inline-block; *margin-left:200px;}
+.layout-panel,.header{ width:1004px;}
+.sidebar{ width:200px; height:100%; background-color:#34343d; position:fixed; top:0;}
+.layout{ width:100%; border-right:1px solid #f7f7f7; min-height:700px; height:auto;}
+
+%inlblk-middle{ display:inline-block; vertical-align:middle;}
+.btn-search,.mail,.set,.checked,.modal-close{ background:url(../images/sprite.png); width:20px; height:20px;}
+
+$bgStyle:(fff,#fff) (green,$colgreen) (red,$colred2);
+@each $var in $bgStyle{
+	$class:nth($var,1);
+	$bg:nth($var,2);
+	.bg#{$class}{ background:$bg;
+		&:hover{ background:$bg!important;}
+	}
+}
+.bgblue-rds{ background:$colblue; @extend %borderRadius1; color:#fff; padding:7px 15px;}
+.halfcontainer{ float:left; width:50%;}
+.vtop{ vertical-align:top!important;}
+.expt-overflow{
+	.text-overflow{ max-width:90px; height:34px; display:inline-block; vertical-align:top;}
+}
+
+.arrow{ @extend %inlblk-middle; @include arrow(4px, transparent transparent transparent #fff,solid);}
+$arrowStyle:(gray-r, 6px, transparent transparent transparent $col1) (gray-b, 4px, $col1 transparent transparent transparent) (green-b, 4px, $colgreen transparent transparent transparent) (white-b, 4px, #fff transparent transparent transparent) (white-t, 4px, transparent transparent #fff transparent) (gray2-b, 4px, $col666 transparent transparent transparent);
+@each $var in $arrowStyle{
+	$class:nth($var,1);
+	$size:nth($var,2);
+	$color:nth($var,3);
+	.arrow-#{$class}{ border-width:$size; border-color:$color;}
+}
+.arrow-white-b,.arrow-gray2-b{ margin-left:10px;}
+.icon-side{ background:url(../images/sidebar.png); width:16px; height:16px; margin-right:14px; display:inline-block; vertical-align:middle;}
+.line-style{ height:22px; line-height:22px;}
+.text-overflow{ @include text-overflow;}
+.bg-style1,
+.bg-style2{ background:$colf2; text-align:center; color:$colc9; display:inline-block;}
+.bg-style1{ padding:6px 0; border-left:1px solid $col1;}
+.bg-style2{ padding:6px 16px; @include border($col1); @extend %borderRadius1;}
+
+$colStyle:(green $colgreen) (red $colred) (333 #333) (666 #666) (999 #999) (gray1 $bord2);
+@each $var in $colStyle{
+	$class:nth($var,1);
+	$colorValue:nth($var,2);
+	.col#{$class}{ color:$colorValue;}
+}
+.colgreen:hover{ color:$colgreenhv;}
+$fontsizeStyle:14, 16;
+@each $var in $fontsizeStyle{
+	.ft#{$var}{ font-size:($var)*1px;}
+}
+.ml20{ margin-left:20px;}
+.mb20{ margin-bottom:20px;}
+.plr20{ padding:0 20px;}
+.plr10{ padding:0 10px;}
+.pt30{ padding-top:30px;}
+.mr10{ margin-right:10px;}
+.mr15{ margin-right:15px;}
+.pl0{ padding-left:0;}
+.imp0{ padding:0!important;}
+.impb0{ padding-bottom:0!important;}
+.brd1{ @include border(#dbdde0);}
+.txt-bold{ font-weight:bold; color:#000;}
+$whStyle:(130x130 130) (150x150 150);
+@each $var in $whStyle{
+	$class:nth($var,1);
+	$wh:nth($var,2);
+	.w#{$class}{ width:($wh)*1px; height:($wh)*1px;}
+}
+.w150x150{ margin:0 auto 20px;}
+$widthStyle:30,50,57,60,68,80,95,100,150,166,200,300,340,386,500,520;
+@each $var in $widthStyle{
+	.w#{$var}{ width:($var)*1px;}
+}
+.inlblk{ display:inline-block;}
+.blk{ display:block;}
+.labelbox{ display:inline-block; @include border($col1);
+	input{ height:22px; line-height:22px; padding:6px 10px;}
+	&:focus{ @include border(red);}
+}
+textarea{ @include border($col1); line-height:22px; padding:10px;}
+.input-disabled{ background:$colf2;
+	select{ background:$colf2;}
+}
+.link-disabled{ color:$bord2; cursor:default;
+	&:hover{ color:$bord2;}
+}
+/*select droplist*/
+.select-opts{ background:#fff; width:100%; @include border($bord2); border-top:none; margin-left:-1px; display:none; position:absolute; top:34px; left:0; z-index:4;}
+.select-action{ position:relative;
+	a{ display:block;}
+	&:hover{ background:#fff; @include border($bord2); border-bottom:none;
+		.select-opts{ display: block;}
+	}
+}
+.drop-select{ height:24px; line-height:24px; padding-left:5px; display:inline-block;/* vertical-align:top;*/ border:0 none; cursor:pointer; color:$col666;}
+.drop-text{ min-width:50px; padding:0 10px; height:34px; line-height:34px; display:inline-block; vertical-align:top; max-width:70px; overflow:hidden; border-left:1px solid $col1;}
+.drop-end{ border-left:1px solid $col1;}
+$dropWidth:(end 77px) (all 148px) (80 80px) (110 110px) (180 180px) (220 220px);
+@each $var in $dropWidth{
+	$class:nth($var,1);
+	$width:nth($var,2);
+	.drop-#{$class}{ width:$width;}
+}
+/*sidebar*/
+.sidebar{ width:200px; height:100%; background-color:#34343d; position:fixed; top:0;}
+.blank{ background-color:#474750; height:60px;}
+.sidebar-nav{
+	li{ text-indent:30px; line-height:38px; cursor:pointer; font-size:14px; color:#fff;}
+	h2:hover{ background:#2a2a32;}
+	a{ color:#fff; display:block;
+		&:hover{ background:#2a2a32;}
+	}
+	.leve1{ display:none;
+		li{ text-indent:60px;}
+		.now{
+			a{ color:$colgreen;}
+			.arrow{ border-color:transparent transparent transparent $colgreen;}
+		}
+	}
+	.now{
+		h2{ background:#2a2a32; color:$colgreen;}
+		.leve1{ background:rgba(255,255,255,.1); display:block;}
+	}
+	@for $var from 1 through $iconbarlen{
+		@at-root .icon-#{$var}{ background-position:-(16px)*(($var)-1) 0;}
+		.now{
+			.icon-#{$var}{ background-position:-(16px)*(($var)-1) -16px;}
+		}
+	} 
+}
+/*header*/
+.header{ background:#fff; height:42px; line-height:42px; padding:9px 0; border-bottom:1px solid #f3f4f5; position:fixed; top:0; z-index:8;}
+.group-box{ margin-left:28px; padding:0 14px; @include border(#fff);
+	a{ color:$col666;}
+	&:hover{
+		.arrow{ border-color:transparent transparent $col666 transparent; margin-top:-8px;}
+	}
+	.select-opts{ text-indent:14px;
+		a{ color:$colgreen;}
+	}
+}
+.search-panel{ background:#f6f6f6; width:322px; margin-left:27px; color:#bcbcbc; position:relative;}
+.search-con{ width:266px; padding:9px 40px 9px 14px; @include border($colf2);* margin-left:-27px;
+	&:focus{ @include border(#c9ced4);}
+	&:focus + .btn-search-panel .btn-search{ background-position:-20px -20px;}
+}
+.btn-search-panel{ padding:0 10px; cursor:pointer;*margin-top:12px; position:absolute; top:0; right:0;}
+.btn-search{ background-position:-20px 0; vertical-align:middle; cursor:pointer;
+	&:hover,&:active{ background-position:-20px -20px;}
+}
+.mail{ background-position:-40px 0; position:relative;
+	&:hover{ background-position:-40px -20px;}
+	i{ width:20px; height:20px; line-height:20px; background:#ffcc33; text-align:center; color:#fff; position:absolute; right:-12px; top:-12px; @include border-radius(50%);}
+}
+.set{ background-position:-60px 0; margin:0 16px 0 24px;
+	&:hover{ background-position:-60px -20px;}
+}
+.us-name{ max-width:80px; @include text-overflow;}
+.logout{ background:$colf2; margin:0 20px 0 16px; padding:9px 10px; @extend %borderRadius1;
+	&:hover{ background:$col1;}
+}
+.header-r{
+	a{ @extend %inlblk-middle; color:$col666;}
+}
+/*mainbox*/
+.mainbox{ padding-top:61px;}
+.nav-panel{ background:#eff1f3; height:40px; line-height:40px; padding:17px 20px 17px 30px; border-bottom:1px solid #c6cbd2;
+	@at-root .nav{ font-size:18px; color:$col666; overflow:hidden;
+		.arrow-gray-r{ margin:0 15px;}
+		span{
+			a{ color:$colgreen;
+				&:hover{ color:$colgreenhv;}
+			}
+		}
+		.end{ color:$col666;}
+	}
+	.labelbox{ line-height:normal;}
+}
+.btn-mod{ display:inline-block; min-width:98px; padding:0 10px; height:38px; line-height:38px; text-align:center; margin-left:10px; @extend %borderRadius1;}
+$btnStyle:(blue $colblue #fff $colblue) (green #fff $colgreen $colgreen) (gray #fff $col2 $col2) (disabled #f2ebeb $col2 $col2);
+@each $var in $btnStyle{
+	$class:nth($var,1);
+	$bg:nth($var,2);
+	$color:nth($var,3);
+	$border:nth($var,4);
+	.btn-skin-#{$class}{ background:$bg; color:$color; @include border($border);}
+}
+.btn-skin-green:hover{ color:$colgreenhv; @include border($colgreenhv);}
+.btn-skin-disabled{ cursor:default;
+	&:hover{ color:$col2; @include border($col2);}
+}
+.btn-mod-disabled{ cursor:default; background:#cacfd5; @include border(#cacfd5);}
+/*tab*/
+.tab{ margin-bottom:24px; padding-top:20px; padding-left:30px; border-bottom:1px solid $col1;
+	a{ padding:10px 34px; color:$col666; display:inline-block;}
+	.now{ background:#fff; margin-bottom:-1px; @include border($col1); border-bottom:0 none;}
+}
+/*提示tips*/
+.normaltips{ background:#ffffcc; width:298px; padding:10px 20px 10px 11px; position:relative; @include border(#ffcc66);
+	.close{ color:#ffcc66; position:absolute; right:5px; top:10px;}
+}
+/*分页*/
+.pages{
+	.page-con{ padding:30px 0; text-align:center;
+		a{ background:#fff; height:20px; line-height:20px; padding:0 5px; margin:0 3px; color:$col666; display:inline-block; @include border($col2);
+			&:hover,&.now{ background:$col1;}
+		}
+	}
+}
+/*error*/
+.error{ color:$colred; display:block; margin-top:3px;}
+.error_origin{ @include border($colred);}

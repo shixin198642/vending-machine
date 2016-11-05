@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.OutstoreDao">
+    <resultMap id="Outstore" type="com.mjitech.model.Outstore">
+	    <id property="id" column="id"/>
+	    <result property="type" column="type"/>
+	    <result property="sellOrderId" column="sell_order_id"/>
+	    <result property="warehouseId" column="warehouse_id"/>
+	    <result property="userid" column="userid"/>
+	    <result property="skuId" column="sku_id"/>
+	    <result property="quantity" column="quantity"/>	 
+	    <result property="receiptId" column="receipt_id"/>	 
+		<result property="toWarehouseId" column="to_warehouse_id" />
+		<result property="description" column="description" />
+		<result property="price" column="price"/>	
+		<result property="creator" column="creator" />
+		<result property="updator" column="updator" />		 
+		<result property="createDatetime" column="create_datetime" />
+		<result property="updateDatetime" column="update_datetime" />
+    </resultMap>
+
+	<sql id="Base_Column_List">
+        id, type, sell_order_id, warehouse_id, userid, sku_id, quantity, receipt_id, to_warehouse_id, 
+        description, price, creator, updator, create_datetime, update_datetime 
+	</sql>
+	
+	<select id="getById" resultMap="Outstore" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_outstore
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+	<insert id="add" parameterType="com.mjitech.model.Outstore" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_outstore(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{type},  #{sellOrderId}, #{warehouseId}, #{userid}, #{skuId}, #{quantity}, #{receiptId}, 
+        	#{toWarehouseId}, #{description}, #{price},
+        	#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+	<update id="update" parameterType="com.mjitech.model.Outstore">
+    	update mt_outstore set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="type != 0">
+                type = #{type},
+            </if>
+            <if test="skuId != 0">
+                skuId = #{skuId},
+            </if>
+            <if test="quantity != 0">
+                quantity = #{quantity},
+            </if>
+            <if test="toWarehouseId != 0">
+                to_warehouse_id = #{toWarehouseId},
+            </if>
+            <if test="sellOrderId != 0">
+                sell_order_id = #{sellOrderId},
+            </if>
+            <if test="receiptId != 0">
+                receipt_id = #{receiptId},
+            </if>
+            <if test="description != null and description !=''">
+                description = #{description},
+            </if>
+            <if test="price &gt; 0">
+                price = #{price},
+            </if>            
+        	updator=#{updator} where id=#{id}
+    </update>
+	
+	<delete id="delete" parameterType="int">
+    	delete from mt_outstore where id=#{id}
+    </delete>
+    
+	<select id="getByCondition" resultMap="Outstore" parameterType="com.mjitech.model.Outstore">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_outstore
+        <where>
+        	1=1
+        	<if test="warehouseId != 0">
+                and warehouse_id = #{warehouseId}
+            </if>
+            <if test="userid != 0">
+                and userid = #{userid}
+            </if>
+        	<if test="toWarehouseId != 0">
+                and to_warehouse_id = #{toWarehouseId}
+            </if>
+            <if test="sellOrderId != 0">
+                and sell_order_id = #{sellOrderId}
+            </if>
+            <if test="type != 0">
+                and type = #{type}
+            </if>
+            <if test="skuId != 0">
+                and sku_id = #{skuId}
+            </if>
+            <if test="receiptId != 0">
+                and receipt_id = #{receiptId}
+            </if>
+        </where>
+        order by id desc
+    </select>
+	
+    <select id="listOutStore" resultMap="Outstore" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_outstore <where> to_warehouse_id=#{warehouseId} </where>
+    </select>
+    
+    
+
+</mapper>

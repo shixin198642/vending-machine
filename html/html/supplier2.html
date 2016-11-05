@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>供应商--编辑供应商</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<!-- 点击添加class now -->
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<!-- 点击添加class now -->
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="供应商">供应商</a></span><i class="arrow arrow-gray-r"></i><span class="end">编辑供应商</span>
+						</div>
+					</div>
+					<div class="content">
+						<div class="plr20 pt30">
+							<div class="info-panel">
+								<div class="hd">基本信息</div>
+								<div class="bd">
+									<div>
+										<dl class="infobox2">
+											<dt><span class="star">*</span>公司名称</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input class="w386" type="text">
+												</label>
+											</dd>
+											<dt><span class="star">*</span>通讯地址</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">省份</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">城市</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-110" name="" id="">
+														<option value="">区县</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<input class="w300" type="text" placeholder="详细地址">
+												</label>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">联系人名单</div>
+								<div class="bd">
+									<div class="table table-d">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<td>姓名</td>
+													<td>联系电话</td>
+													<td>传真</td>
+													<td>Email</td>
+													<td>备注</td>
+													<td>操作</td>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- 如果没有联系人s -->
+												<tr>
+													<td colspan="6">暂无联系人</td>
+												</tr>
+												<!-- 如果没有联系人e -->
+												<tr>
+													<td>王某某</td>
+													<td>010-3365223</td>
+													<td>010-3365223</td>
+													<td>dwelkj@163.com</td>
+													<td>副总经理</td>
+													<td>
+														<span class="alink">
+															<a class="colgreen" href="" title="编辑">编辑</a>
+															<a class="colgreen" href="" title="删除">删除</a>
+														</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="clearfix bottom-info">
+										<div class="fl">
+											<a class="btn-mod btn-skin-green" href="" title="添加联系人">+ 添加联系人</a>
+										</div>
+										<div class="fr">
+											<dl>
+												<dt><span class="star">*</span> 主要联系人</dt>
+												<dd>
+													<label for="" class="labelbox">
+														<select class="drop-select drop-all" name="" id="">
+															<option value="">联系人</option>
+															<option value="">联系人</option>
+															<option value="">联系人</option>
+														</select>
+													</label>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">交易信息</div>
+								<div class="bd">
+									<div>
+										<dl class="dl-style6">
+											<dt>银行账号</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input class="w150" type="text">
+												</label>
+											</dd>
+											<dt>开户行</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input class="w150" type="text">
+												</label>
+											</dd>
+										</dl>
+										<dl class="infobox2">
+											<dt>发货地址</dt>
+											<dd>
+												<input type="checkbox">与通讯地址相同
+											</dd>
+											<dt></dt>
+											<dd>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">省份</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">城市</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<select class="drop-select drop-110" name="" id="">
+														<option value="">区县</option>
+														<option value="">北京</option>
+														<option value="">北京</option>
+													</select>
+												</label>
+												<label for="" class="labelbox">
+													<input class="w300" type="text" placeholder="详细地址">
+												</label>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="btn-action-panel">
+								<a class="btn-action btn-blue" href="" title="完成并保存">完成并保存</a>
+								<a class="btn-action btn-cancel" href="" title="放弃编辑">放弃编辑</a>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 编辑联系人 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑联系人</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<dl class="clearfix infobox">
+					<dt><span class="star">*</span>姓名</dt>
+					<dd>
+						<laebl class="labelbox"><input type="text"></laebl>
+					</dd>
+					<dt><span class="star">*</span>联系电话</dt>
+					<dd>
+						<laebl class="labelbox"><input type="text"></laebl>
+					</dd>
+					<dt>传真</dt>
+					<dd>
+						<laebl class="labelbox"><input type="text"></laebl>
+					</dd>
+					<dt>Email</dt>
+					<dd><laebl class="labelbox"><input class="w200" type="text"></laebl></dd>
+					<dt>备注</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w340" type="text"></laebl>
+					</dd>
+					<dt></dt>
+					<dd><input type="checkbox">设置为主要联系人</dd>
+				</dl>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑联系人 e -->
+<!-- 确认删除联系人 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认要删除此联系人吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 确认删除联系人 e -->
+<!-- 删除成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>删除成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除成功 e -->
+</body>
+</html>

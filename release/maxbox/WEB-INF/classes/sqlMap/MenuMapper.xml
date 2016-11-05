@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.MenuDao">
+	<resultMap id="Menu" type="com.mjitech.model.Menu">
+		<id column="id" property="id"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="name" property="name"/>
+		<result column="url" property="url"/>
+		<result column="icon_class" property="iconClass"/>
+		<result column="sort_number" property="sortNumber"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		id,parent_id,name,url,icon_class,sort_number,
+		creator,create_datetime,updator,update_datetime
+	</sql>
+
+
+    <select id="getById" resultMap="Menu" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_menu
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Menu" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_menu(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{parentId}, #{name}, #{url}, #{iconClass}, #{sortNumber}, 
+        	#{creator}, #{createDatetime}, #{updator}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.Menu">
+    	update mt_menu set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="iconClass != null and iconClass != ''">
+                icon_class = #{iconClass},
+            </if>
+            <if test="parentId != 0">
+                parent_id = #{parentId},
+            </if>
+            <if test="sortNumber != 0">
+                sort_number = #{sortNumber},
+            </if>
+            
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_menu where id=#{id}	
+    </delete>
+     
+    <select id="getByParent" resultMap="Menu" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_menu
+        <where>
+        	parent_id = #{parentId}
+        </where>
+        order by sort_number, update_datetime
+    </select>
+    
+    <select id="getAll" resultMap="Menu">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_menu
+        order by sort_number, update_datetime
+    </select>
+
+    
+</mapper>

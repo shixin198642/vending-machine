@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>仓储库存--收货单操作</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<label for="" class="labelbox">
+								<select class="drop-select drop-180" name="" id="">
+									<option value="">北京市第二仓库</option>
+									<option value="">北京市第二仓库</option>
+									<option value="">北京市第二仓库</option>
+								</select>
+							</label>
+							<span><a href="" title="仓储库存">仓储库存</a></span><i class="arrow arrow-gray-r"></i><span class="end">收货单 002322</span>
+						</div>
+						<div class="fr btn-mod-panel">
+							<a class="btn-mod btn-skin-green" href="" title="打印">打印</a>
+							<a class="btn-mod btn-skin-green" href="" title="查看订单">查看订单</a>
+						</div>
+					</div>
+					<div class="content">
+						<div class="plr20 pt30">
+							<div class="clearfix">
+								<div class="info-l fl">
+									<div class="posbaner">等待审核<i class="arrow triangle"></i></div>
+									<div class="plr20 brd1 mb20 bgfff">
+										<div class="deal-tit clearfix">
+											<div class="fl">
+												<p>收货单编号</p>
+												<p class="deal-num">002366</p>
+											</div>
+											<span>仓库<em>北京市第一仓库</em></span>
+											<span>日期<em>2016 年 6 月 2 日</em></span>
+										</div>
+										<div class="clearfix">
+											<div class="half mr10">
+												<div class="info-panel">
+													<div class="hd gray-hd">供应商信息</div>
+													<div class="bd">
+														<div class="pb0">
+															<dl class="infobox">
+																<dt>公司名称</dt>
+																<dd><a class="colgreen" href="" title="北京华沁智联科技有限公司">北京华沁智联科技有限公司</a></dd>
+																<dt>地址</dt>
+																<dd>北京华沁智联科技有限公司</dd>
+																<dt>联系人</dt>
+																<dd>王某某</dd>
+																<dt>联系电话</dt>
+																<dd>010-0055666</dd>
+															</dl>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="half">
+												<div class="info-panel">
+													<div class="hd gray-hd">订单信息</div>
+													<div class="bd">
+														<div class="pb0">
+															<dl class="infobox">
+																<dt>订单编号</dt>
+																<dd><a class="colgreen" href="" title="000223">000223</a></dd>
+																<dt>负责人</dt>
+																<dd>王某某</dd>
+																<dt>联系电话</dt>
+																<dd>010-0055666</dd>
+																<dt>Email</dt>
+																<dd><a class="colgreen" href="">dkslkd@163.com</a></dd>
+															</dl>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="info-panel">
+											<div class="hd gray-hd">收货清单</div>
+												<div class="bd">
+													<div class="table table-a imp0">
+														<table width="100%" cellspacing="0" cellpadding="0">
+															<thead>
+																<tr>
+																	<th class="tb-chkbox"><input type="checkbox"></th>
+																	<th>SKU#</th>
+																	<th>商品名称</th>
+																	<th>批次</th>
+																	<th>箱规</th>
+																	<th>数量</th>
+																	<th>单位</th>
+																	<th>实际收货数量</th>
+																	<th>异常信息</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td class="tb-chkbox"><input type="checkbox"></td>
+																	<td>
+																		<a class="colgreen" href="" title="869999">869999</a>
+																		<div class="itemcard">
+																			<div class="info-panel">
+																				<div class="pic">
+																					<img src="../images/sprite.png" alt="">
+																				</div>
+																				<dl class="dl-style5">
+																					<dt>SKU＃</dt>
+																					<dd>180天</dd>
+																					<dt>商品条形码</dt>
+																					<dd>3068320000343</dd>
+																					<dt>商品名称</dt>
+																					<dd>可口可乐樱桃味汽水300ml</dd>
+																				</dl>
+																				<dl class="infobox">
+																					<dt>保质期</dt>
+																					<dd>180天</dd>
+																					<dt>建议零售价</dt>
+																					<dd>2.50</dd>
+																				</dl>
+																				<div class="tip-btns">
+																					<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+																				</div>
+																			</div>
+																		</div>
+																	</td>
+																	<td>
+																		<a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a>
+																		<div class="itemcard">
+																			<div class="info-panel">
+																				<div class="pic">
+																					<img src="../images/sprite.png" alt="">
+																				</div>
+																				<dl class="dl-style5">
+																					<dt>SKU＃</dt>
+																					<dd>180天</dd>
+																					<dt>商品条形码</dt>
+																					<dd>3068320000343</dd>
+																					<dt>商品名称</dt>
+																					<dd>可口可乐樱桃味汽水300ml</dd>
+																				</dl>
+																				<dl class="infobox">
+																					<dt>保质期</dt>
+																					<dd>180天</dd>
+																					<dt>建议零售价</dt>
+																					<dd>2.50</dd>
+																				</dl>
+																				<div class="tip-btns">
+																					<a class="btn-action btn-blue" href="" title="查看商品详情">查看商品详情</a>
+																				</div>
+																			</div>
+																		</div>
+																	</td>
+																	<td>2016-04-09</td>
+																	<td>12 / 罐</td>
+																	<td>6</td>
+																	<td>箱</td>
+																	<td>5</td>
+																	<td class="expt-overflow">
+																		<span class="text-overflow"></span><a class="colgreen" href="" title="分拣异常">分拣异常</a>
+																	</td>
+																</tr>
+																<!-- 分拣异常添加class bgred -->
+	                              <tr class="bgred">
+																	<td class="tb-chkbox"><input type="checkbox"></td>
+																	<td><a class="colgreen" href="" title="869999">869999</a></td>
+																	<td><a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a></td>
+																	<td>2016-04-09</td>
+																	<td>12 / 罐</td>
+																	<td>6</td>
+																	<td>箱</td>
+																	<td>5</td>
+																	<td class="expt-overflow">
+																		<span class="text-overflow">缺货, 过期,缺货, 过期,缺货, 过期</span><a class="colgreen" href="" title="分拣异常">编辑</a>
+																	</td>
+																</tr>
+															</tbody>
+															<tfoot>
+																<tr>
+																	<td class="tb-chkbox"><input type="checkbox"></td>
+																	<td align="left" colspan="8">
+																		<a class="btn-action btn-blue" href="" title="批量收货成功">批量收货成功</a>
+																	</td>
+																</tr>
+															</tfoot>
+														</table>
+													</div>
+												</div>
+										</div>
+										<div class="info-panel">
+											<div class="hd gray-hd">物流信息</div>
+											<div class="bd">
+												<ul class="litbanr clearfix">
+													<li>
+														<div>
+															<h4>发货方式</h4>
+															<p>海外直邮</p>
+														</div>
+													</li>
+													<li>
+														<div>
+															<h4>物流公司</h4>
+															<p>顺丰</p>
+														</div>
+													</li>
+													<li>
+														<div>
+															<h4>发货日期</h4>
+															<p>2015 年 6 月 2 日</p>
+														</div>
+													</li>
+													<li>
+														<div>
+															<h4>预计到货日期</h4>
+															<p>2015 年 6 月 2 日</p>
+														</div>
+													</li>
+												</ul>
+												<div>
+													<dl class="dl-style3">
+														<dt>收货仓库</dt>
+														<dd>北京第一仓库</dd>
+														<dt>联系人</dt>
+														<dd>王某某</dd>
+														<dt>联系电话</dt>
+														<dd>010-2300056</dd>
+														<dt>包裹跟踪号</dt>
+														<dd>AD22332212</dd>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="info-panel">
+										<div class="hd">备注</div>
+										<div class="bd">
+											<div class="remark-panel">
+												<div class="remark">
+													<p class="clearfix">
+														<span class="colgray1">2016-06-03 18:00</span>
+														<span class="plr20"><a class="colgreen" href="" title="王某某">王某某</a></span>
+														<span class="txt">这个订单好</span>
+													</p>
+													<p class="clearfix">
+														<span class="colgray1">2016-06-03 18:00</span>
+														<span class="plr20"><a class="colgreen" href="" title="王某某">王某某</a></span>
+														<span class="txt">这个订单好这个订单好这个订单好这个订单好这个订单好这个订单好这个订单好这个订单好</span>
+													</p>
+													<p class="clearfix">
+														<span class="colgray1">2016-06-03 18:00</span>
+														<span class="plr20"><a class="colgreen" href="" title="王某某">王某某</a></span>
+														<span class="txt">这个订单好</span>
+													</p>
+												</div>
+												<dl>
+													<dt class="vtop">添加新备注</dt>
+													<dd><textarea name="" id="" cols="30" rows="10"></textarea></dd>
+													<dt></dt>
+													<dd>
+														<a class="btn-mod btn-skin-green" href="" title="保存">保存</a>
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="info-r fl">
+									<div class="tabbar">
+										<div class="tabcon clearfix">
+											<!-- 切换tab添加class now -->
+											<span class="now"><em>审核</em></span>
+											<span><em>收货</em></span>
+											<span><em>验货</em></span>
+											<span><em>验货结束</em></span>
+											<i class="justify-fix"></i>
+										</div>
+										<div class="tabline clearfix">
+					            <!-- 切换tab添加class now -->
+					            <i class="now">1</i>          
+					            <i>2</i>
+					            <i>3</i>
+					            <i class="end">✓</i>
+					            <span class="justify-fix"></span>
+					          </div>
+					          <div class="tabline clearfix">
+					            <!-- 失败添加class error -->
+					            <i class="error">x</i>          
+					            <i>2</i>
+					            <i>3</i>
+					            <i class="end">✓</i>
+					            <span class="justify-fix"></span>
+					          </div>
+									</div>
+									<div class="info-panel">
+										<div class="hd">审核</div>
+										<div class="bd">
+											<div>
+												<dl class="dl-style5">
+													<dt class="ft14">审核结果</dt>
+													<dd class="radiobox">
+														<p><input type="radio" name="result" checked="checked">接收</p>
+														<p><input type="radio" name="result">拒绝</p>
+													</dd>
+												</dl>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="确定">确定</a>
+											</div>
+										</div>
+									</div>
+									<!-- 审核s -->
+									<div class="info-panel">
+										<div class="hd">审核收货单</div>
+										<div class="bd">
+											<div>
+												<dl class="dl-style5">
+													<dt class="ft14">审核结果</dt>
+													<dd class="radiobox">
+														<p><input type="radio" name="result" checked="checked">接收</p>
+														<p><input type="radio" name="result">拒绝</p>
+													</dd>
+													<!-- 选择“拒绝”时显示 -->
+													<dt>拒绝原因</dt>
+													<dd>
+														<label for="" class="labelbox">
+															<select class="drop-select drop-all" name="" id="">
+																<option value="">仓库问题</option>
+																<option value="">仓库问题</option>
+																<option value="">仓库问题</option>
+															</select>
+														</label>
+													</dd>
+												</dl>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="确定">确定</a>
+											</div>
+										</div>
+									</div>
+									<div class="info-panel">
+										<div class="hd">审核收货单</div>
+										<div class="bd">
+											<div class="pb0">
+												<dl class="dl-style5">
+													<dt class="ft14">审核结果</dt>
+													<dd class="colred">拒绝</dd>
+													<dt>拒绝原因</dt>
+													<dd>仓库问题</dd>
+												</dl>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="生成新收货单">生成新收货单</a>
+											</div>
+										</div>
+									</div>
+									<!-- 审核e -->
+									<!-- 收货s -->
+									<div class="info-panel">
+										<div class="hd">收货确认</div>
+										<div class="bd">
+											<div>
+												<dl class="dl-style5">
+													<dt class="ft14">收货结果</dt>
+													<dd class="radiobox">
+														<p><input type="radio" name="result" checked="checked">已收货</p>
+														<p><input type="radio" name="result">货物未收到</p>
+													</dd>
+													<!-- 选择“货物未收到”时显示 -->
+													<dt>备注</dt>
+													<dd>
+														<label for="" class="labelbox">
+															<input type="text">
+														</label>
+													</dd>
+												</dl>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="开始扫码验货">开始扫码验货</a>
+											</div>
+										</div>
+									</div>
+									<div class="info-panel">
+										<div class="hd">收货</div>
+										<div class="bd">
+											<div class="pb0">
+												<dl class="dl-style5">
+													<dt class="ft14">收货结果</dt>
+													<dd class="colred">货物未收到</dd>
+													<dt>备注</dt>
+													<dd>供应商发货地址有误，需要更正之后重新发货。</dd>
+												</dl>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="生成新收货单">生成新收货单</a>
+											</div>
+										</div>
+									</div>
+									<!-- 收货e -->
+									<!-- 验货s -->
+									<div class="info-panel">
+										<div class="hd">验货</div>
+										<div class="bd">
+											<div class="process-panel">
+												<p>已验货 <span>15 / 25</span></p>
+												<div class="process-box">
+													<!-- 通过style width控制进度百分比 -->
+													<div style="width:40%;" class="process"></div>
+												</div>
+											</div>
+											<div class="tip-btns">
+												<a class="btn-action btn-blue" href="" title="验货结束">验货结束</a>
+											</div>
+										</div>
+									</div>
+									<!-- 验货e -->
+									<!-- 验货结束s -->
+									<div class="info-panel">
+										<div class="hd">验货结束</div>
+										<div class="bd">
+											<div class="pb0">
+												<dl class="dl-style5">
+													<dt>验货结果</dt>
+													<dd>部分验收通过</dd>
+													<dt>通过</dt>
+													<dd>9种商品</dd>
+													<dt>异常</dt>
+													<dd>3种商品</dd>
+												</dl>
+											</div>
+											<!-- 有“验货异常的商品”时显示 -->
+											<div style="" class="plr10">
+												<div class="info-panel">
+													<div class="hd gray-hd">验货异常的商品</div>
+													<div class="bd">
+														<div class="error-prdt-panel">
+															<div class="error-prdt-box">
+																<h4>
+																	<span class="mr10">＃000126</span>
+																	<span>可口可乐樱桃味汽水300ml</span>
+																</h4>
+																<div class="error-prdt clearfix">
+																	<p class="fl">货物有遗漏<span><em class="colred">3</em>箱</span></p>
+																	<a class="fr colgreen" href="" title="验货">验货</a>
+																</div>
+																<div class="error-prdt clearfix">
+																	<p class="fl">货物有遗漏<span><em class="colred">3</em>箱</span></p>
+																	<a class="fr colgreen" href="" title="验货">验货</a>
+																</div>
+															</div>
+															<div class="error-prdt-box">
+																<h4>
+																	<span class="mr10">＃000126</span>
+																	<span>可口可乐樱桃味汽水300ml</span>
+																</h4>
+																<div class="error-prdt clearfix">
+																	<p class="fl">货物有遗漏<span><em class="colred">3</em>箱</span></p>
+																	<a class="fr colgreen" href="" title="验货">验货</a>
+																</div>
+																<div class="error-prdt clearfix">
+																	<p class="fl">货物有遗漏<span><em class="colred">3</em>箱</span></p>
+																	<a class="fr colgreen" href="" title="验货">验货</a>
+																</div>
+															</div>
+															<div class="tip-btns">
+																<a class="btn-action btn-blue" href="" title="不再处理，收货完毕">不再处理，收货完毕</a>
+																<a class="btn-action btn-blue" href="" title="生成新收货单">生成新收货单</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 验货结束e -->
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 确认是否收货 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认拒绝该收货请求吗？</p>
+				<!-- 各种情况 -->
+				<p>确认接收该收货请求吗？</p>
+				<p>确认已收货吗？</p>
+				<p>确认未收到货物吗？</p>
+				<p>确认结束验货吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 确认是否收货 e -->
+<!-- 编辑异常信息 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑异常信息</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="table table-nobord imp0">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td>
+								<label for="" class="labelbox">
+									<input class="w30" type="text">
+								</label>
+							</td>
+							<td>箱</td>
+							<td>
+								<label for="" class="labelbox">
+									<select class="drop-select drop-all" name="" id="">
+										<option value="">选择异常原因</option>
+										<option value="">质量问题</option>
+										<option value="">质量问题</option>
+									</select>
+								</label>
+							</td>
+							<td>
+								<label for="" class="labelbox">
+									<input class="w200" type="text" placeholder="备注">
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" colspan="4"><a class="colgreen" href="" title="增加异常原因">+ 增加异常原因</a></td>
+						</tr>
+						<tr>
+							<td align="left" colspan="4"><input type="checkbox">其余 4 箱已收货成功</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑异常信息 e -->
+<!-- 分拣扫描条形码匹配到一个或多个清单中商品时，显示浮层 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">分拣</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="table table-a">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th></th>
+							<td>SKU#</td>
+							<td>商品名称</td>
+							<td>批次</td>
+							<td>箱规</td>
+							<td>数量</td>
+							<td>单位</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="tb-radio"><input type="radio" checked="checked"></th>
+							<td><a class="colgreen" href="" title="022222">022222</a></td>
+							<td><a class="colgreen" href="" title="可口可乐樱桃味汽水300ml">可口可乐樱桃味汽水300ml</a></td>
+							<td>2016-06-02</td>
+							<td>12 / 罐</td>
+							<td>20</td>
+							<td>箱</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="分拣成功">分拣成功</a>
+				<a class="btn-action btn-blue" href="" title="分拣异常">分拣异常</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 分拣扫描条形码匹配到一个或多个清单中商品时，显示浮层 e -->
+<!-- 商品验货结果 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p>该商品不在收货清单中。</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-cancel" href="" title="返回">返回</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 商品验货结果 e -->
+</body>
+</html>

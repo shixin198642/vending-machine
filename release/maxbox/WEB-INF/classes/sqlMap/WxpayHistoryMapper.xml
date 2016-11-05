@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.WxpayHistoryDao">
+	<resultMap id="WxpayHistory" type="com.mjitech.model.WxpayHistory">
+		<id column="id" property="id"/>
+		<result column="sell_order_id" property="sellOrderId"/>
+		<result column="sell_order_number" property="sellOrderNumber"/>
+		<result column="wxpay_return" property="wxpayReturn"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+        id, sell_order_id, sell_order_number, wxpay_return, creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="WxpayHistory" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_wxpay_history
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.WxpayHistory" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_wxpay_history(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{sellOrderId},#{sellOrderNumber}, #{wxpayReturn}, 
+         #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.WxpayHistory">
+    	update mt_wxpay_history set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="wxpayReturn != null and wxpayReturn != ''">
+                wxpay_return = #{wxpayReturn},
+            </if>
+            <if test="sellOrderNumber != null and sellOrderNumber != ''">
+                sell_order_number = #{sellOrderNumber},
+            </if>
+            <if test="sellOrderId != 0">
+                sell_order_id = #{sellOrderId},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_wxpay_history where id=#{id}
+    </delete>
+</mapper>

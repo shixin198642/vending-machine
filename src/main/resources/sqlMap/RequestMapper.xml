@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.RequestDao">
+    <resultMap id="Request" type="com.mjitech.model.Request">
+	    <id property="id" column="id"/>
+	    <result property="machine_id" column="machine_id"/>
+	    <result property="warehouse_id" column="warehouse_id"/>
+	    <result property="sorting_id" column="sorting_id"/>
+	    <result property="sku_id" column="sku_id"/>
+	    <result property="quantity" column="quantity"/>	 
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	    			    
+		<association property="sku" javaType="com.mjitech.model.Sku">
+		   <id property="id" column="sku_id"/>
+		   <result property="name" column="skuName"/>
+		</association>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, machine_id, warehouse_id, sorting_id, sku_id, quantity, creator, updator, create_datetime, update_datetime 
+	</sql>
+
+    <select id="getNewByMachine" resultMap="Request">
+    	SELECT <include refid="Base_Column_List" />
+    	FROM mt_request  <where> machine_id=#{machine_id} </where> AND sorting_id=0
+    </select>
+    
+    <select id="getHistoryByMachine" resultMap="Request">
+    	SELECT <include refid="Base_Column_List" />
+    	FROM mt_request  <where> machine_id=#{machine_id} </where> AND sorting_id > 0
+    </select>
+
+    <select id="getByMachine" resultMap="Request">
+    	SELECT r.id, r.sorting_id, r.machine_id, r.warehouse_id, w.id, w.name, w.warehouse_parent,r.quantity, r.update_datetime, s.id AS sku_id, s.name AS skuName
+    	FROM mt_warehouse AS w, mt_request AS r, mt_sku AS s
+    	WHERE w.id=r.machine_id AND r.sku_id = s.id
+    	<if test="machine_id != null"> AND w.id=#{machine_id} </if>
+    </select> 
+    
+     <insert id="createRequest" parameterType="com.mjitech.model.Request" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_request(machine_id, warehouse_id, sorting_id, sku_id, sku_spec_id, quantity, creator, create_datetime, updator, update_datetime)
+        VALUES ( #{machine_id}, #{warehouse_id}, #{sorting_id}, #{sku_id}, #{sku_spec_id}, #{quantity}, 
+        	#{creator}, #{createDatetime}, #{updator}, #{updateDatetime})
+    </insert>     
+ 
+    <update id="setPickingId" parameterType="com.mjitech.logdbmodel.Userlog">
+    	update mt_request set sorting_id = #{picking_id} where id = #{request_id}
+    </update> 
+    
+    <select id="getById" resultMap="Request" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_request
+        <where>
+        	id=#{id}
+        </where>
+    </select>    
+
+</mapper>

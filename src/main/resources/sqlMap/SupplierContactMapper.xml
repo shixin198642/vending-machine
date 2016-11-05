@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.SupplierContactDao">
+	<resultMap id="SupplierContact" type="com.mjitech.model.SupplierContact">
+		<id column="id" property="id"/>
+		<result column="cname" property="cname"/>
+		<result column="tel" property="tel"/>
+		<result column="fax" property="fax"/>
+		<result column="email" property="email"/>
+		<result column="remarks" property="remarks"/>
+		<result column="type" property="type"/>
+		<result column="supplierid" property="supplierid"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		 id,cname,tel,fax,email,remarks,type,supplierid,
+		 creator,updator,create_datetime,update_datetime
+	</sql>
+
+    <select id="getById" resultMap="SupplierContact" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier_contact
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    
+    <select id="selectSupplierContact" resultMap="SupplierContact" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier_contact
+        <where>
+        	supplierid=#{supplierid}
+        </where>
+    </select>
+    
+    <select id="getByCname" resultMap="SupplierContact" parameterType="java.lang.String">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier_contact
+        <where>
+        	cname=#{cname}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.SupplierContact" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_supplier_contact(<include refid="Base_Column_List" />)
+        VALUES ( #{id}, #{cname}, #{tel}, #{fax}, #{email}, #{remarks},#{type}, #{supplierid},
+ 				#{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <update id="update" parameterType="com.mjitech.model.SupplierContact">
+    	update mt_supplier_contact set 
+    		update_datetime=#{updateDatetime},
+
+    		<if test="cname != null">
+                cname = #{cname},
+            </if>
+            <if test="tel != null">
+                tel = #{tel},
+            </if>
+            <if test="fax != null">
+                fax = #{fax},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks},
+            </if>
+            <if test="type != 0">
+                type = #{type},
+            </if>
+            <if test="supplierid != 0">
+                supplierid = #{supplierid},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+    	delete from mt_supplier_contact where id=#{id}	
+    </delete>
+    
+    <select id="getByCondition" resultMap="SupplierContact" parameterType="com.mjitech.model.SupplierContact">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_supplier_contact
+        <where>
+        	1=1
+        	<if test="cname != null">
+                and cname = #{cname}
+            </if>
+            <if test="type != 0 ">
+                and type = #{type}
+            </if>
+            <if test="supplierid != 0">
+                and supplierid = #{supplierid}
+            </if>
+        </where>
+    </select>
+    
+    <update id="removeAllSupplierMainContactTag" parameterType="com.mjitech.model.SupplierContact">
+    	update mt_supplier_contact set 
+    		update_datetime=#{updateDatetime},
+    		type=2,
+        	updator=#{updator}
+			where
+			supplierid = #{supplierid}
+    </update>
+</mapper>

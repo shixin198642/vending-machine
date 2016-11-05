@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>创建商品</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="首页">首页</a></span><i class="arrow arrow-gray-r"></i><span class="end">创建新商品</span>
+						</div>
+					</div>
+					<div class="content">
+						<div class="plr20 pt30">
+							<div class="info-panel">
+								<div class="hd">基本信息</div>
+								<div class="bd">
+									<div>
+										<dl class="infobox">
+											<dt><span class="star">*</span>商品条形码</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text">
+													<a class="bg-style1 line-style btn-verify" href="" title="验证">验证</a>
+												</label>
+												<a class="colgreen ml20" href="" title="扫描条形码">扫描条形码</a>
+												<!-- 扫描后显示 -->
+												<span class="ml20">请扫描条形码...<a class="colgreen ml20" href="" title="取消扫描">取消扫描</a></span>
+											</dd>
+											<dt><span class="star">*</span>商品名称</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input class="w386" type="text">
+												</label>
+												<!-- <a class="colgreen ml20" href="" title="商品命名规范">商品命名规范</a> -->
+											</dd>
+											<dt><span class="star">*</span>品牌</dt>
+											<dd>
+												<laebl class="labelbox"><input type="text"></laebl>
+												<dl class="inlblk clearfix">
+													<dt>生产地</dt>
+													<dd>
+														<laebl class="labelbox"><input type="text" placeholder="国家 / 地区"></laebl>
+													</dd>
+												</dl>
+											</dd>
+											<dt><span class="star">*</span>分类</dt>
+											<dd class="category">
+												<laebl class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">毫升</option>
+														<option value="">毫升</option>
+														<option value="">毫升</option>
+													</select>
+												</laebl>
+												<laebl class="labelbox">
+													<select class="drop-select drop-all" name="" id="">
+														<option value="">毫升</option>
+														<option value="">毫升</option>
+														<option value="">毫升</option>
+													</select>
+												</laebl>
+											</dd>
+											<dt><span class="star">*</span>零售单位</dt>
+											<dd>
+												<laebl class="labelbox"><input class="w80" type="text" placeholder="个"></laebl>
+												<dl class="inlblk inl-two clearfix">
+													<dt>建议零售价</dt>
+													<dd>
+														<laebl class="labelbox"><input type="text" placeholder="0.0"></laebl>
+													</dd>
+													<dt>保质期（天）</dt>
+													<dd>
+														<laebl class="labelbox"><input type="text" placeholder="0.0"></laebl>
+													</dd>
+												</dl>
+											</dd>
+											<dt>包装规格</dt>
+											<dd>
+												<laebl class="labelbox"><input class="" type="text" placeholder="长（mm）"></laebl>
+												<laebl class="labelbox"><input class="" type="text" placeholder="宽（mm）"></laebl>
+												<laebl class="labelbox"><input class="" type="text" placeholder="高（mm）"></laebl>
+											</dd>
+											<dt>标签</dt>
+											<dd>
+												<laebl class="labelbox"><input class="w500" type="text" placeholder="多个标签之间用逗号分隔"></laebl>
+											</dd>
+											<dt class="vtop">备注</dt>
+											<dd>
+												<textarea class="w500" name="" id="" cols="30" rows="4"></textarea>
+											</dd>
+										</dl>
+										<div class="style-brd1 clearfix">
+											<dl class="infobox category-panel">
+												<dt>净含量</dt>
+												<dd>
+													<label for="" class="labelbox droplist-panel">
+														<input type="text">
+														<select class="drop-select drop-end" name="" id="">
+															<option value="">毫升毫升</option>
+															<option value="">毫升</option>
+															<option value="">毫升</option>
+														</select>
+													</label>
+												</dd>
+												<dt>单位没有下拉框</dt>
+												<dd>
+													<label for="" class="labelbox droplist-panel">
+														<input type="text">
+														<span class="drop-text">单位文字</span>
+													</label>
+												</dd>
+												<dt>储藏方式</dt>
+												<dd>
+													<label for="" class="labelbox droplist-panel">
+														<select class="drop-select drop-all" name="" id="">
+															<option value="">常温保存</option>
+															<option value="">常温保存</option>
+															<option value="">常温保存</option>
+														</select>
+													</label>
+												</dd>
+												<dt>口味</dt>
+												<dd>
+													<label for="" class="labelbox">
+														<input type="text">
+													</label>
+												</dd>
+											</dl>
+										</div>
+										<div class="upload-img-panel">
+											<div class="upload-img"><img src="../images/sidebar.png" alt=""></div>
+											<div class="btn-mod-panel">
+												<a class="btn-mod btn-skin-green" href="" title="上传商品图片">上传商品图片</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">箱规</div>
+								<div class="bd">
+									<div class="table table-nobord">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<th></th>
+													<td>箱规单位</td>
+													<td>每单位数量</td>
+													<td>箱规</td>
+													<td></td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th><span class="bgnum">1</span></th>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w100" type="text">
+														</label>
+													</td>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w60" type="text">
+														</label>
+													</td>
+													<td>-</td>
+													<td><a class="colgreen" href="" title="删除此箱规">删除此箱规</a></td>
+												</tr>
+												<tr>
+													<th><span class="bgnum">2</span></th>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w100" type="text">
+														</label>
+													</td>
+													<td>
+														<label for="" class="labelbox">
+															<input class="w60" type="text">
+														</label>
+													</td>
+													<td>-</td>
+													<td><a class="colgreen" href="" title="删除此箱规">删除此箱规</a></td>
+												</tr>
+												<tr>
+													<th></th>
+													<td align="left" colspan="4"><a class="colgreen" href="" title="增加一种箱规">+ 增加一种箱规</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">库存管理</div>
+								<div class="bd">
+									<div class="clearfix">
+										<dl class="infobox category-panel">
+											<dt>最大库存值</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text" placeholder="0">
+												</label>
+											</dd>
+											</dd>
+											<dt>安全库存值</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text" placeholder="0">
+												</label>
+											</dd>
+											</dd>
+											<dt>最低库存值</dt>
+											<dd>
+												<label for="" class="labelbox">
+													<input type="text" placeholder="0">
+												</label>
+											</dd>
+										</dl>
+									</div>
+									<!-- 总宽度为600 -->
+									<div class="kcmanage-panel">
+										<div class="prognum clearfix">
+											<!-- 不需要计算 -->
+											<span class="start">0</span>
+											<!-- 距离最左侧的位置所占百分比减1，只需要计算enum -->
+											<!-- 88/600=15% 减1=14% -->
+											<span style="left:14%;" class="enum">88</span>
+											<!-- (88+360)/600=75% 减1=74% -->
+											<span style="left:74%;" class="enum">150</span>
+											<!-- 不需要计算 -->
+											<span class="end">200</span>
+										</div>
+										<div class="progbar clearfix">
+											<!-- 宽度值的百分比 -->
+											<!-- 88/600=15% -->
+											<span style="width:15%;" class="prog1"></span>
+											<!-- 360/600=60% -->
+											<span style="width:60%;" class="prog2"></span>
+											<!-- 150/600=25% -->
+											<span style="width:25%;" class="prog3"></span>
+										</div>
+										<div class="progtxt clearfix">
+											<!-- 距离最左侧的位置所占百分比减5 -->
+											<!-- 88/600=15% 减5=10% -->
+											<span style="left:10%;" class="etxt">最低库存值</span>
+											<span style="left:70%;" class="etxt">安全库存值</span>
+											<span class="end">最大库存值</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="btn-action-panel">
+								<input type="checkbox">暂不供应此商品
+								<a class="btn-action btn-blue" href="" title="完成并保存">完成并保存</a>
+								<a class="btn-action btn-cancel" href="" title="放弃编辑">放弃编辑</a>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<div class="modal-container upload-tip">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">上传商品图片</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="upload-img-box">
+				<a class="btn-upload" href="" title="选择图片文件">选择图片文件</a>
+				<span class="ml20">支持jpg、png、bmp格式的图片，且文件小于20M</span>
+			</div>
+			<div class="img-view-panel clearfix">
+				<div class="actualimg fl"><img src="1.png" alt=""></div>
+				<div class="preimg-panel fl">
+					<p>图片预览</p>
+					<div class="preimg"><img src="1.png" alt=""></div>
+				</div>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 增加商品库存 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">增加商品库存</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<dl class="clearfix infobox">
+					<dt>SKU#</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w50" type="text"></laebl>
+					</dd>
+					<dl class="inline clearfix">
+						<dt>商品名称</dt>
+						<dd>
+							<laebl class="labelbox"><input class="w166" type="text"></laebl>
+						</dd>
+						<dt>当前库存</dt>
+						<dd class="olrtxt-box">
+							<p class="olrtxt">3</p>
+						</dd>
+					</dl>
+					<dl class="inline clearfix">
+						<dt>增加库存</dt>
+						<dd>
+							<laebl class="labelbox"><input class="w50" type="text"></laebl>
+						</dd>
+						<dt>调整后库存</dt>
+						<dd class="olrtxt-box">
+							<p class="olrtxt">43</p>
+						</dd>
+					</dl>
+					<dt class="vtop">备注</dt>
+					<dd>
+						<textarea class="w340" name="" id="" cols="30" rows="4"></textarea>
+					</dd>
+				</dl>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 增加商品库存 e -->
+</body>
+</html>

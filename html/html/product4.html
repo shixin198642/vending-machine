@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>商品详情</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<span><a href="" title="商品">商品</a></span><i class="arrow arrow-gray-r"></i><span class="end">可口可乐樱桃味汽水300ml</span>
+						</div>
+						<div class="fr btn-mod-panel">
+							<!-- <a class="btn-mod btn-skin-green" href="" title="编辑商品信息">编辑商品信息</a> -->
+							<a class="btn-mod btn-skin-green" href="" title="关联供应商">关联供应商</a>
+						</div>
+					</div>
+					<div class="content">
+						<div class="tab">
+							<!-- 选中状态添加now -->
+							<a class="now" href="" title="商品信息">商品信息</a>
+							<a href="" title="相关供应商">相关供应商 (<span class="colgreen">3</span>)</a>
+							<a href="" title="相关机器">相关机器 (<span class="colgreen">3</span>)</a>
+							<a href="" title="相关采购订单/收货单">相关采购订单/收货单</a>
+						</div>
+						<!-- 切换tab显示对应tabinfo-panel -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="clearfix">
+								<div class="info-panel">
+									<div class="hd">基本信息</div>
+									<div class="bd">
+										<div class="plr20 pro-info-panel">
+											<dl class="pro-info-pre">
+												<dt>SKU＃</dt>
+												<dd>34455</dd>
+												<dt>商品条形码</dt>
+												<dd>3323</dd>
+												<dt>商品名称</dt>
+												<dd>可口可乐樱桃味汽水300ml</dd>
+											</dl>
+											<div class="pro-info-oth">
+												<dl>
+													<dt>品牌</dt>
+													<dd>34455</dd>
+													<dt>生产地</dt>
+													<dd>3323</dd>
+													<dt>分类</dt>
+													<dd>332333</dd>
+													<dt>包装规格</dt>
+													<dd>200mm * 150mm * 190mm</dd>
+													<dt>零售单位</dt>
+													<dd>罐</dd>
+													<dt>保质期</dt>
+													<dd>180 天</dd>
+													<dt>建议零售价</dt>
+													<dd>2.5</dd>
+													<dt>标签</dt>
+													<dd>汽水</dd>
+													<dt>备注</dt>
+													<dd class="remark">高销量商品；注意库存状况；可口可乐在美国乔治亚州亚特兰大市诞生，自此便与社会发展相互交融，激发创新灵感。</dd>
+												</dl>
+												<dl>
+													<dt>净含量</dt>
+													<dd>300 毫升 (ml)</dd>
+													<dt>口味</dt>
+													<dd>樱桃</dd>
+													<dt>储存方法</dt>
+													<dd>冷藏</dd>
+												</dl>
+											</div>
+										</div>
+										<div class="upload-img-panel">
+											<div class="upload-img"><img src="../images/sidebar.png" alt=""></div>
+											<div class="btn-mod-panel">
+												<a class="btn-mod btn-skin-green" href="" title="编辑基本信息">编辑基本信息</a>
+												<a class="btn-mod btn-skin-green" href="" title="编辑商品图片">编辑商品图片</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">箱规</div>
+								<div class="bd">
+									<div class="table table-d table-style1">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<td>箱规</td>
+													<td>箱规单位</td>
+													<td>每单位数量</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>12罐 / 箱</td>
+													<td>箱</td>
+													<td>12</td>
+												</tr>
+												<tr>
+													<td>12罐 / 箱</td>
+													<td>箱</td>
+													<td>12</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="pospanel">
+										<div class="btn-mod-panel">
+											<a class="btn-mod btn-skin-green" href="" title="编辑箱规">编辑箱规</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">库存管理</div>
+								<div class="bd">
+									<div class="table table-d table-style1">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<td>状态</td>
+													<td>最大库存值</td>
+													<td>安全库存值</td>
+													<td>最小库存值</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>正常</td>
+													<td>25</td>
+													<td>15</td>
+													<td>5</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="kcmanage-panel protxq">
+										<div class="prognum clearfix">
+											<span class="start">0</span>
+											<span style="left:14%;" class="enum">30</span>
+											<span style="left:74%;" class="enum">150</span>
+											<span class="end">200</span>
+										</div>
+										<div class="progbar clearfix">
+											<span style="width:15%;" class="prog1"></span>
+											<span style="width:60%;" class="prog2"></span>
+											<span style="width:25%;" class="prog3"></span>
+										</div>
+										<div class="progtxt clearfix">
+											<span style="left:10%;" class="etxt">最低库存值</span>
+											<span style="left:70%;" class="etxt">安全库存值</span>
+											<span class="end">最大库存值</span>
+										</div>
+									</div>
+									<div class="pospanel">
+										<div class="btn-mod-panel">
+											<a class="btn-mod btn-skin-green" href="" title="编辑库存值">编辑库存值</a>
+											<a class="btn-mod btn-skin-green" href="" title="停止供应">停止供应</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 相关供应商 -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>供应商编号</th>
+											<th>公司名称</th>
+											<th>单件价格 (元)</th>
+											<th>联系人</th>
+											<th>电话号码</th>
+											<th>到货周期（天）</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a class="colgreen" href="" title="869999">00029</a></td>
+											<td><a class="colgreen" href="" title="869999">伊利丹食品商贸公司</a></td>
+											<td>3.00</td>
+											<td>王丹</td>
+											<td>010-86743569</td>
+											<td>3</td>
+											<td>
+												<span class="alink">
+													<a class="colgreen" href="" title="详情">详情</a>
+													<a class="colgreen" href="" title="编辑">编辑</a>
+													<a class="colgreen" href="" title="删除">删除</a>
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td><a class="colgreen" href="" title="869999">00029</a></td>
+											<td><a class="colgreen" href="" title="869999">伊利丹食品商贸公司</a></td>
+											<td>3.00</td>
+											<td>王丹</td>
+											<td>010-86743569</td>
+											<td>3</td>
+											<td>
+												<span class="alink">
+													<a class="colgreen" href="" title="详情">详情</a>
+													<a class="colgreen" href="" title="编辑">编辑</a>
+													<a class="colgreen" href="" title="删除">删除</a>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- 相关机器 -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>机器编号</th>
+											<th>机器名称</th>
+											<th>省份（直辖市）</th>
+											<th>城市</th>
+											<th>区县</th>
+											<th>详细地址</th>
+											<th>状态</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a class="colgreen" href="" title="869999">869999</a></td>
+											<td><a class="colgreen" href="" title="苹果社区一号机">苹果社区一号机</a></td>
+											<td>北京市</td>
+											<td>北京市</td>
+											<td>朝阳区</td>
+											<td>百子湾路32号</td>
+											<td>正常</td>
+										</tr>
+										<tr>
+											<td><a class="colgreen" href="" title="869999">869999</a></td>
+											<td><a class="colgreen" href="" title="苹果社区一号机">苹果社区一号机</a></td>
+											<td>北京市</td>
+											<td>北京市</td>
+											<td>朝阳区</td>
+											<td>百子湾路32号</td>
+											<td>缺货</td>
+										</tr>
+										<tr>
+											<td><a class="colgreen" href="" title="869999">869999</a></td>
+											<td><a class="colgreen" href="" title="苹果社区一号机">苹果社区一号机</a></td>
+											<td>北京市</td>
+											<td>北京市</td>
+											<td>朝阳区</td>
+											<td>百子湾路32号</td>
+											<td>停止售卖</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- 相关采购订单/收货单 -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="table table-a">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>订单编号</th>
+											<th>供应商名称</th>
+											<th>供应商编号</th>
+											<th>总金额</th>
+											<th>订单状态</th>
+											<th>收货单</th>
+											<th>收货单期限</th>
+											<th>最后更新时间</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a class="colgreen" href="" title="021200231">021200231</a></td>
+											<td><a class="colgreen" href="" title="北京好滋味食品商贸公司">北京好滋味食品商贸公司</a></td>
+											<td>00001</td>
+											<td>120.00</td>
+											<td>未生成合同</td>
+											<td>
+												<!-- disabled状态添加link-disabled -->
+												<span class="alink">
+													<a class="colgreen link-disabled" href="javascript:void(0);" title="查看">查看</a>
+													<a class="colgreen" href="" title="新建">新建</a>
+												</span>
+											</td>
+											<td>06-02</td>
+											<td>06-01 18:00</td>
+											<td class="select-action">
+												<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+												<div class="select-opts">
+													<a class="colgreen" href="" title="编辑订单">编辑订单</a>
+													<a class="colgreen" href="" title="打印合同">打印合同</a>
+													<a class="colgreen" href="" title="导出为PDF">导出为PDF</a>
+													<a class="colgreen" href="" title="关闭合同">关闭合同</a>
+													<a class="colgreen" href="" title="补充信息">补充信息</a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><a class="colgreen" href="" title="021200231">021200231</a></td>
+											<td><a class="colgreen" href="" title="北京好滋味食品商贸公司">北京好滋味食品商贸公司</a></td>
+											<td>00001</td>
+											<td>120.00</td>
+											<td>未生成合同</td>
+											<td>
+												<span class="alink">
+													<a class="colgreen" href="javascript:void(0);" title="查看">查看</a>
+													<a class="colgreen" href="" title="新建">新建</a>
+												</span>
+											</td>
+											<td>06-02</td>
+											<td>06-01 18:00</td>
+											<td class="select-action">
+												<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="9">
+												<table class="table-order" width="100%" cellspacing="0" cellpadding="0">
+													<thead>
+														<tr>
+															<th>
+																<div>
+																	<span class="col666">收货单</span><span class="col999">(2)</span>
+																</div>
+																<div><a class="colgreen" href="" title="新建收货单">＋ 新建收货单</a></div>
+															</th>
+															<td>收货单编号</td>
+															<td>备注名</td>
+															<td>包裹追踪号码</td>
+															<td>状态</td>
+															<td>最后更新时间</td>
+															<td>操作</td>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th></th>
+															<td><a class="colgreen" href="">869999</a></td>
+															<td>收货单1</td>
+															<td>34341344</td>
+															<td>等待审核</td>
+															<td>06-01 18:00</td>
+															<td>
+																<span class="alink">
+																	<a class="colgreen" href="" title="打印">打印</a>
+																	<a class="colgreen" href="" title="关闭">关闭</a>
+																</span>
+															</td>
+														</tr>
+														<tr>
+															<th></th>
+															<td><a class="colgreen" href="">869999</a></td>
+															<td>收货单1</td>
+															<td>34341344</td>
+															<td>等待审核</td>
+															<td>06-01 18:00</td>
+															<td>
+																<span class="alink">
+																	<a class="colgreen" href="" title="打印">打印</a>
+																	<a class="colgreen" href="" title="关闭">关闭</a>
+																</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><a class="colgreen" href="" title="021200231">021200231</a></td>
+											<td><a class="colgreen" href="" title="北京好滋味食品商贸公司">北京好滋味食品商贸公司</a></td>
+											<td>00001</td>
+											<td>120.00</td>
+											<td>未生成合同</td>
+											<td>
+												<span class="alink">
+													<a class="colgreen" href="javascript:void(0);" title="查看">查看</a>
+													<a class="colgreen" href="" title="新建">新建</a>
+												</span>
+											</td>
+											<td>06-02</td>
+											<td>06-01 18:00</td>
+											<td class="select-action">
+												<a class="colgreen" href="" title="选择操作">选择操作<i class="arrow arrow-green-b"></i></a>
+												<div class="select-opts">
+													<a class="colgreen" href="" title="编辑订单">编辑订单</a>
+													<a class="colgreen" href="" title="打印合同">打印合同</a>
+													<a class="colgreen" href="" title="导出为PDF">导出为PDF</a>
+													<a class="colgreen" href="" title="关闭合同">关闭合同</a>
+													<a class="colgreen" href="" title="补充信息">补充信息</a>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!-- 编辑基本信息 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑基本信息</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<dl class="clearfix infobox">
+					<dt>建议零售价</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w50" type="text"></laebl>
+					</dd>
+					<dt>包装规格</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w95" type="text"></laebl>
+						<laebl class="labelbox"><input class="w95" type="text"></laebl>
+						<laebl class="labelbox"><input class="w95" type="text"></laebl>
+					</dd>
+					<dt>标签</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w340" type="text"></laebl>
+					</dd>
+					<dt class="vtop">备注</dt>
+					<dd>
+						<textarea class="w340" name="" id="" cols="30" rows="4"></textarea>
+					</dd>
+				</dl>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑基本信息 e -->
+<!-- 编辑商品图片 s -->
+<div class="modal-container upload-tip">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑商品图片</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="upload-img-box">
+				<a class="btn-upload" href="" title="选择图片文件">选择图片文件</a>
+				<span class="ml20">支持jpg、png、bmp格式的图片，且文件小于20M</span>
+			</div>
+			<div class="img-view-panel clearfix">
+				<div class="actualimg fl"><img src="../images/sprite.png" alt=""></div>
+				<div class="preimg-panel fl">
+					<p>图片预览</p>
+					<div class="preimg"><img src="../images/sprite.png" alt=""></div>
+				</div>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑商品图片 e -->
+<!-- 编辑箱规 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑箱规</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="table table-nobord">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th></th>
+							<td>箱规单位</td>
+							<td>每单位数量</td>
+							<td>箱规</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><span class="bgnum">1</span></th>
+							<td>
+								<label for="" class="labelbox">
+									<input class="w80" type="text">
+								</label>
+							</td>
+							<td>6 箱 / 罐</td>
+							<td>
+								<label for="" class="labelbox">
+									<input class="w30" type="text">
+								</label>
+							</td>
+							<td><a class="colgreen" href="" title="删除此箱规">删除此箱规</a></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td align="left" colspan="4"><a class="colgreen" href="" title="增加一种箱规">+ 增加一种箱规</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑箱规 e -->
+<!-- 编辑库存值 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑库存值</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="edit-inventory-tip">
+				<div class="info-panel">
+					<dl class="clearfix">
+						<dt>最大库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+						<dt>最低库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+						<dt>安全库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+					</dl>
+				</div>
+				<div class="kcmanage-panel">
+					<div class="prognum clearfix">
+						<span class="start">0</span>
+						<span style="left:9%;" class="enum">30</span>
+						<span style="left:69%;" class="enum">150</span>
+						<span class="end">200</span>
+					</div>
+					<div class="progbar clearfix">
+						<span style="width:10%;" class="prog1"></span>
+						<span style="width:60%;" class="prog2"></span>
+						<span style="width:30%;" class="prog3"></span>
+					</div>
+					<div class="progtxt clearfix">
+						<span style="left:5%;" class="etxt">最低库存值</span>
+						<span style="left:65%;" class="etxt">安全库存值</span>
+						<span class="end">最大库存值</span>
+					</div>
+				</div>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑库存值 e -->
+<!-- 停止供应 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认停止供应此商品吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 停止供应 e -->
+<!-- 关联供应商 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">关联供应商</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<div class="edit-supplier">
+					<dl class="clearfix supplier-box">
+						<dt>供应商</dt>
+						<dd>
+							<!-- 禁用态添加input-disabled -->
+							<label class="labelbox input-disabled" for="">
+								<input class="supplier-name" type="text" placeholder="供应商编号或公司名称" disabled="disabled">
+								<!-- 下拉框 -->
+								<div class="supplier-search-con">
+									<a href="">000112 - 三得利沁柠水550ml</a>
+									<a href="">000112 - 三得利沁柠水550ml</a>
+								</div>
+							</label>
+							<!-- <a class="line-style bg-style2" href="" title="确认供应商">确认供应商</a> -->
+							<!-- 填写完供应商后显示 -->
+							<i class="checked"></i>
+						</dd>
+						<dt></dt>
+						<dd>
+							<div class="normaltips">
+								<p>如需添加新的供应商，请在“供应商”版块中点击“创建供应商”并填写相关信息。</p>
+								<a class="close" href="" title="关闭">✕</a>
+							</div>
+						</dd>
+					</dl>
+					<div style="display:block" class="edit-display">
+						<div class="table table-c">
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th></th>
+										<td>箱规</td>
+										<td>箱规报价</td>
+										<td>单件价格</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th class="tb-chkbox"><input type="checkbox" checked="checked"></th>
+										<td>12罐 / 箱</td>
+										<td><label class="labelbox" for=""><input type="text"></label></td>
+										<td>2.00</td>
+									</tr>
+									<tr>
+										<th class="tb-chkbox"><input type="checkbox"></th>
+										<td>12罐 / 箱</td>
+										<td><label class="labelbox" for=""><input type="text"></label></td>
+										<td>2.00</td>
+									</tr>
+									<tr>
+										<th class="tb-chkbox"><input type="checkbox"></th>
+										<td>12罐 / 箱</td>
+										<td><label class="labelbox" for=""><input type="text"></label></td>
+										<td>2.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="edit-tip">
+							<dl class="clearfix dl-style8">
+								<dt>到货周期</dt>
+								<dd>
+									<label class="labelbox" for=""><input type="text"></label>天
+								</dd>
+								<dt>批次效期最小值</dt>
+								<dd>
+									<label class="labelbox" for=""><input type="text"></label>
+								</dd>
+							</dl>
+						</div>
+						<div class="tip-btns">
+							<a class="btn-action btn-blue" href="" title="保存">保存</a>
+							<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 关联供应商 e -->
+<!-- 保存成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>保存成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 保存成功 e -->
+<!-- 编辑展示供应商 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">相关供应商</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div>
+				<dl class="clearfix dl-style7">
+					<dt>SKU＃</dt>
+					<dd>34455</dd>
+					<dt>供应商编号</dt>
+					<dd>00001</dd>
+					<dt>商品名称</dt>
+					<dd>可口可乐樱桃味汽水300ml</dd>
+					<dt>供应商名称</dt>
+					<dd>北京伊利丹食品商贸公司</dd>
+				</dl>
+				<div class="table table-c">
+					<table width="100%" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<td>箱规</td>
+								<td>箱规单位</td>
+								<td>规格总价(元)</td>
+								<td>单件价格(元)</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>12罐 / 箱</td>
+								<td>箱</td>
+								<td>48.00</td>
+								<td>2.00</td>
+							</tr>
+							<tr>
+								<td>12罐 / 箱</td>
+								<td>箱</td>
+								<td>48.00</td>
+								<td>2.00</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="edit-tip">
+					<dl class="clearfix dl-style8">
+						<dt>到货周期</dt>
+						<dd>
+							5.5 天
+						</dd>
+						<dt>批次效期最小值</dt>
+						<dd>
+							1/2
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+				<a class="colgreen" href="" title="编辑相关供应商">编辑相关供应商</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑展示供应商 e -->
+<!-- 删除关联 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认要删除此关联吗？</p>
+				<p class="col999">（此操作不会影响该供应商的信息。）</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除关联 e -->
+<!-- 删除成功 s -->
+<div class="modal-container success-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c pt30">
+				<i class="checked"></i>删除成功
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除成功 e -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+.background {
+    background: url("./image/bg.png") ;
+    width: 10rem;
+    height: 17.77rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.background .intro {
+    background: url("./image/word.png");
+    width: 6rem;
+    height: 3.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 4rem;
+    left: 1.8rem;
+    position: absolute;
+}
+
+.background .qrcode {
+    background: url("./image/qrcode.png");
+    width: 6rem;
+    height: 4.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 12rem;
+    left: 1.8rem;
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mjitech.dao.InventoryDao">
+    
+    <resultMap id="resultInventory" type="com.mjitech.model.Inventory">
+	    <id property="id" column="id"/>
+	    <result property="position" column="position"/>
+	    <result property="warehouse_id" column="warehouse_id"/>
+	    <result property="sellprice" column="sellprice"/>
+	    <result property="max_stock" column="max_stock"/>
+	    <result property="min_stock" column="min_stock"/>
+	    <result property="safe_stock" column="safe_stock"/>
+	    <result property="status" column="status"/>
+	    <result property="quantity" column="quantity"/>
+	    <result property="skuId" column="sku_id"/>
+		<association property="sku" javaType="com.mjitech.model.Sku">
+		   <id property="id" column="sku_id"/>
+		   <result property="name" column="name"/>
+		   <result property="barcode" column="barcode"/>
+		   <result property="brand" column="brand"/>
+		   <result property="country" column="country"/>
+		   <result property="msrp" column="msrp"/>
+		   <result property="category" column="category"/>
+		   <result property="imagePath" column="image_path"/>
+		</association>
+    </resultMap>
+	
+    <resultMap id="Inventory" type="com.mjitech.model.Inventory">
+		<id column="id" property="id"/>
+		<result column="position" property="position"/>
+		<result column="sellprice" property="sellprice"/>
+		<result column="warehouse_id" property="warehouse_id"/>
+		<result column="max_stock" property="max_stock"/>
+		<result column="min_stock" property="min_stock"/>
+		<result column="safe_stock" property="safe_stock"/>
+		<result column="quantity" property="quantity"/>
+		<result column="sku_id" property="skuId"/>
+		<result column="creator" property="creator"/>
+		<result column="updator" property="updator"/>
+		<result column="create_datetime" property="createDatetime"/>
+		<result column="update_datetime" property="updateDatetime"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+        id, position, warehouse_id, sellprice, max_stock, min_stock, safe_stock, quantity, sku_id,
+        creator, updator, create_datetime, update_datetime 
+	</sql>
+
+
+    <select id="getById" resultMap="Inventory" parameterType="int">
+        SELECT <include refid="Base_Column_List" />
+        FROM mt_inventory
+        <where>
+        	id=#{id}
+        </where>
+    </select>
+    
+    <insert id="add" parameterType="com.mjitech.model.Inventory" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO mt_inventory(<include refid="Base_Column_List" />)
+        VALUES (#{id}, #{position},#{warehouse_id}, #{sellprice}, #{max_stock}, #{min_stock}, #{safe_stock},
+                   #{quantity}, #{skuId}, #{creator}, #{updator}, #{createDatetime}, #{updateDatetime})
+    </insert>
+    
+    <select id="getByWarehouse" resultMap="resultInventory">
+    	SELECT i.id AS id, position, warehouse_id, quantity, sellprice, i.max_stock AS max_stock, i.min_stock AS min_stock, i.safe_stock AS safe_stock, status,
+    	       s.id AS sku_id, s.name,  s.barcode, s.brand, s.country, s.msrp, s.category, s.image_path
+    	FROM mt_inventory AS i, mt_sku AS s WHERE i.sku_id = s.id 
+    	<if test="warehouse_id != null"> AND warehouse_id=#{warehouse_id} </if>
+    </select>
+    
+    <select id="getByCondition" resultMap="Inventory">
+    	SELECT <include refid="Base_Column_List" />
+        FROM mt_inventory
+        <where>
+        	1=1
+        	<if test="position != null and position != ''">
+                and position = #{position}
+            </if>
+            <if test="quantity != 0">
+                and quantity = #{quantity}
+            </if>
+            <if test="sellprice != 0">
+                and sellprice = #{sellprice}
+            </if>
+            <if test="skuId != 0">
+                and sku_id = #{skuId}
+            </if>
+            <if test="warehouse_id != 0">
+                and warehouse_id = #{warehouse_id}
+            </if>
+        </where>
+    </select>
+    
+    <update id="update" parameterType="com.mjitech.model.Inventory">
+    	update mt_inventory set 
+    		update_datetime=#{updateDatetime},
+    		
+            <if test="position != null and position != ''">
+                position = #{position},
+            </if>
+            <if test="quantity &lt; 0">
+                quantity = 0,
+            </if>
+            <if test="quantity &gt; 0">
+                quantity = #{quantity},
+            </if>
+            <if test="sellprice &gt; 0">
+                sellprice = #{sellprice},
+            </if>
+            <if test="max_stock != 0">
+                max_stock = #{max_stock},
+            </if>
+            <if test="min_stock != 0">
+                min_stock = #{min_stock},
+            </if>
+            <if test="safe_stock != 0">
+                safe_stock = #{safe_stock},
+            </if>
+        	updator=#{updator} where id=#{id}
+    </update>
+	
+	<delete id="delete" parameterType="int">
+    	delete from mt_inventory where id=#{id}
+    </delete>
+</mapper>

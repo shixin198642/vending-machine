@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>门店机器--商品详情</title>
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<style>
+	.modal-container{display:block; margin:0; position:static;}
+	.wrapper{ height:auto;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap clearfix">
+		<div class="sidebar-panel">
+			<div class="sidebar">
+				<div class="blank"></div>
+				<div class="sidebar-nav">
+					<ul>
+						<li>
+							<h2><i class="icon-side icon-1"></i>首页</h2>
+						</li>
+						<li class="now">
+							<h2><i class="icon-side icon-2"></i>商品</h2>
+							<ul class="leve1">
+								<li class="now">
+									<a href="" title="采购请求"><i class="arrow"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-3"></i>仓储库存</h2>
+							<ul class="leve1">
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+								<li>
+									<a href=""><i class="arrow" title="采购请求"></i>采购请求</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-4"></i>采购订单</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-5"></i>物流配送</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-6"></i>门店机器</h2>
+						</li>
+						<li>
+							<h2><i class="icon-side icon-7"></i>供应商</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout-panel">
+			<div class="layout">
+				<div class="header clearfix">
+					<div class="header-l fl">
+						<div class="fl select-action group-box">
+							<a href="" title="快速新建"><span>快速新建</span><i class="arrow arrow-gray2-b"></i></a>
+							<div class="select-opts">
+								<a href="" title="商品">+ 商品</a>
+								<a href="" title="供应商">+ 供应商</a>
+								<a href="" title="采购订单">+ 采购订单</a>
+							</div>
+						</div>
+						<div class="search-panel fl clearfix">
+							<input class="search-con line-style" type="text" placeholder="商品/订单/供应商">
+							<div class="btn-search-panel"><input class="btn-search" type="button"></div>
+						</div>
+					</div>
+					<div class="header-r fr">
+						<a class="mail" href=""><i>2</i></a>
+						<a class="set" href=""></a>
+						<!-- 未登录显示 -->
+						<a class="us-login" href="" title="登录">登录</a>
+						<!-- 登录后显示 -->
+						<a class="us-name" href="">张三张三张三张三张三</a>
+						<a class="logout line-style" href="" title="退出登录">退出登录</a>
+					</div>
+				</div>
+				<div class="mainbox">
+					<div class="nav-panel clearfix">
+						<div class="fl nav">
+							<label for="" class="labelbox">
+								<select class="drop-select drop-all" name="" id="">
+									<option value="">三里屯二号机</option>
+									<option value="">三里屯二号机</option>
+									<option value="">三里屯二号机</option>
+								</select>
+							</label>
+							<span><a href="" title="门店机器">门店机器</a></span><i class="arrow arrow-gray-r"></i><span><a href="" title="商品库存">商品库存</a></span><i class="arrow arrow-gray-r"></i><span class="end">可口可乐樱桃味汽水300ml</span>
+						</div>
+					</div>
+					<div class="content">
+						<div class="tab">
+							<!-- 选中状态添加now -->
+							<a class="now" href="" title="商品信息">商品信息</a>
+							<a href="" title="销售数据">销售数据</a>
+						</div>
+						<!-- 切换tab显示对应tabinfo-panel -->
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="clearfix">
+								<div class="info-panel">
+									<div class="hd">基本信息</div>
+									<div class="bd">
+										<div class="plr20 pro-info-panel">
+											<dl class="pro-info-pre">
+												<dt>SKU＃</dt>
+												<dd>34455</dd>
+												<dt>商品条形码</dt>
+												<dd>3323</dd>
+												<dt>商品名称</dt>
+												<dd>可口可乐樱桃味汽水300ml</dd>
+											</dl>
+											<div class="pro-info-oth">
+												<dl>
+													<dt>品牌</dt>
+													<dd>34455</dd>
+													<dt>生产地</dt>
+													<dd>3323</dd>
+													<dt>分类</dt>
+													<dd>332333</dd>
+													<dt>包装规格</dt>
+													<dd>200mm * 150mm * 190mm</dd>
+													<dt>零售单位</dt>
+													<dd>罐</dd>
+													<dt>保质期</dt>
+													<dd>180 天</dd>
+													<dt>建议零售价</dt>
+													<dd>2.5</dd>
+													<dt>标签</dt>
+													<dd>汽水</dd>
+													<dt>备注</dt>
+													<dd class="remark">高销量商品；注意库存状况；可口可乐在美国乔治亚州亚特兰大市诞生，自此便与社会发展相互交融，激发创新灵感。</dd>
+												</dl>
+												<dl>
+													<dt>净含量</dt>
+													<dd>300 毫升 (ml)</dd>
+													<dt>口味</dt>
+													<dd>樱桃</dd>
+													<dt>储存方法</dt>
+													<dd>冷藏</dd>
+												</dl>
+											</div>
+										</div>
+										<div class="upload-img-panel">
+											<div class="upload-img"><img src="../images/sidebar.png" alt=""></div>
+											<div class="mod-table">
+												<div class="hd">本机器售价</div>
+												<p>2.5</p>
+											</div>
+											<div class="btn-mod-panel">
+												<a class="btn-mod btn-skin-green" href="" title="修改售价">修改售价</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">机器库存管理</div>
+								<div class="bd">
+									<div class="clearfix">
+										<div class="fl">
+											<div class="table table-d table-style2">
+												<table width="100%" cellspacing="0" cellpadding="0">
+													<thead>
+														<tr>
+															<td>状态</td>
+															<td>现有机器库存</td>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>正常</td>
+															<td>25</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="fl">
+											<div class="table table-d table-style3">
+												<table width="100%" cellspacing="0" cellpadding="0">
+													<thead>
+														<tr>
+															<td>最大库存值</td>
+															<td>安全库存值</td>
+															<td>最小库存值</td>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>25</td>
+															<td>15</td>
+															<td>5</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!-- 总宽度为600 -->
+									<div class="kcmanage-panel protxq">
+										<div class="prognum clearfix">
+											<!-- 不需要计算 -->
+											<span class="start">0</span>
+											<!-- 距离最左侧的位置所占百分比减1，只需要计算enum -->
+											<!-- 88/600=15% 减1=14% -->
+											<span style="left:14%;" class="enum">88</span>
+											<!-- (88+360)/600=75% 减1=74% -->
+											<span style="left:74%;" class="enum">150</span>
+											<!-- 不需要计算 -->
+											<span class="end">200</span>
+										</div>
+										<div class="progbar clearfix">
+											<!-- 宽度值的百分比 -->
+											<!-- 88/600=15% -->
+											<span style="width:15%;" class="prog1"></span>
+											<!-- 360/600=60% -->
+											<span style="width:60%;" class="prog2"></span>
+											<!-- 150/600=25% -->
+											<span style="width:25%;" class="prog3"></span>
+										</div>
+										<div class="progtxt clearfix">
+											<!-- 距离最左侧的位置所占百分比减5 -->
+											<!-- 88/600=15% 减5=10% -->
+											<span style="left:10%;" class="etxt">最低库存值</span>
+											<span style="left:70%;" class="etxt">安全库存值</span>
+											<span class="end">最大库存值</span>
+										</div>
+									</div>
+									<div class="pt30">
+										<div class="table table-d table-style2">
+											<table width="100%" cellspacing="0" cellpadding="0">
+												<thead>
+													<tr>
+														<td>批次</td>
+														<td>批次库存</td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>2016-03-02</td>
+														<td>25</td>
+													</tr>
+													<tr>
+														<td>2016-03-02</td>
+														<td>25</td>
+													</tr>
+													<tr>
+														<td>2016-03-02</td>
+														<td>25</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="pospanel">
+										<div class="btn-mod-panel">
+											<a class="btn-mod btn-skin-green" href="" title="编辑库存值">编辑库存值</a>
+											<a class="btn-mod btn-skin-green" href="" title="停止供应">停止供应</a>
+											<a class="btn-mod btn-skin-green" href="" title="下架">下架</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="display:block;" class="tabinfo-panel">
+							<div class="info-panel">
+								<div class="hd">周转率总结</div>
+								<div class="bd">
+									<div class="table table-d table-style1">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<td>日周转率</td>
+													<td>周周转率</td>
+													<td>月周转率</td>
+													<td>年周转率</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>62.50%</td>
+													<td>62.50%</td>
+													<td>62.50%</td>
+													<td>62.50%</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="pt30 ml20">
+										<div class="table table-d table-style3">
+											<table width="100%" cellspacing="0" cellpadding="0">
+												<thead>
+													<tr>
+														<td>日销售数量</td>
+														<td>月销售数量</td>
+														<td>年销售数量</td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>3000</td>
+														<td>3000</td>
+														<td>3000</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">日周转走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>今日周转率 60%</span>
+											<span>昨日周转率 50%</span>
+											<span>1天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">周周转走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>昨日周周转率 60%</span>
+											<span>7天前周周转率 50%</span>
+											<span>7天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">月周转走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>昨日月周转率 60%</span>
+											<span>30天前月周转率 50%</span>
+											<span>30天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">日销售数量走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>今日销售数量 60</span>
+											<span>昨日销售数量 50</span>
+											<span>1天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">周销售数量走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>昨日销售数量 60</span>
+											<span>7天前销售数量 50</span>
+											<span>7天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-panel">
+								<div class="hd">月销售数量走势图</div>
+								<div class="bd">
+									<div class="chart">
+										<div class="txt">
+											<span>昨日销售数量 60</span>
+											<span>30天前销售数量 50</span>
+											<span>30天涨幅 +20.00%</span>
+										</div>
+										<div class="chart-pic">
+											<div class="div">
+												<div class="hd"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-msk"></div>
+<!--  编辑售价 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title"> 编辑售价</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="info-panel">
+				<dl class="clearfix infobox ln34">
+					<dt>建议零售价</dt>
+					<dd>2.50 元</dd>
+					<dt>本机器售价</dt>
+					<dd>
+						<laebl class="labelbox"><input class="w95" type="text"></laebl>
+					</dd>
+				</dl>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  编辑售价 e -->
+<!-- 编辑库存值 s -->
+<div class="modal-container">
+	<div class="modal-tip">
+		<div class="modal-hd">
+			<h4 class="modal-title">编辑库存值</h4>
+			<a class="modal-close" href="javascript:void(0)" title="关闭"></a>
+		</div>
+		<div class="modal-bd">
+			<div class="edit-inventory-tip">
+				<div class="info-panel">
+					<dl class="clearfix">
+						<dt>最大库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+						<dt>最低库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+						<dt>安全库存值</dt>
+						<dd>
+							<label for="" class="labelbox">
+								<input type="text">
+							</label>
+						</dd>
+					</dl>
+				</div>
+				<div class="kcmanage-panel">
+					<div class="prognum clearfix">
+						<span class="start">0</span>
+						<span style="left:9%;" class="enum">30</span>
+						<span style="left:69%;" class="enum">150</span>
+						<span class="end">200</span>
+					</div>
+					<div class="progbar clearfix">
+						<span style="width:10%;" class="prog1"></span>
+						<span style="width:60%;" class="prog2"></span>
+						<span style="width:30%;" class="prog3"></span>
+					</div>
+					<div class="progtxt clearfix">
+						<span style="left:5%;" class="etxt">最低库存值</span>
+						<span style="left:65%;" class="etxt">安全库存值</span>
+						<span class="end">最大库存值</span>
+					</div>
+				</div>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="保存">保存</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 编辑库存值 e -->
+<!-- 停止供应 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认停止供应此商品吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 停止供应 e -->
+<!-- 停止供应 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">此商品已停止供应。</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 停止供应 e -->
+<!-- 确认下架 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">确认下架此商品吗？</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确认">确认</a>
+				<a class="btn-action btn-cancel" href="" title="取消">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 确认下架 e -->
+<!-- 恢复供应 s -->
+<div class="modal-container delete-tip">
+	<div class="modal-tip">
+		<div class="modal-bd">
+			<div class="t-c">
+				<p class="col333">此商品已成功下架。</p>
+			</div>
+			<div class="tip-btns">
+				<a class="btn-action btn-blue" href="" title="确定">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 恢复供应 e -->
+</body>
+</html>
